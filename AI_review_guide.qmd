@@ -1,0 +1,544 @@
+---
+title: "Guide to Using AI in Literature Searching and Screening for Evidence Syntheses"
+author: 
+  - "Matt Grainger"
+  - "Frode Thomassen Singsaas"
+format: html
+version: "0.1"
+toc: true
+toc-depth: 3
+number-sections: true
+---
+
+**Version:** {{< meta version >}}
+
+```{=html}
+<div style="position: fixed; margin-top: 10%; margin-left:5%; font-size: 120px; font-weight: 900; color: #CCCCCC; rotate: -45deg; z-index:-999;">DRAFT</div>
+```
+
+# Introduction
+
+### Purpose of this guide
+
+The guide aims to assist researchers in navigating the use of AI tools in research synthesis. 
+
+This guide is a "living document" that will be updated periodically. The document will use `version control` following this format:
+
+  - 0.1 — very early draft
+
+  -   0.2, 0.5, 0.9 — incremental drafts approaching maturity
+
+  -   1.0 — first "official" release or published version
+
+  -   1.1, 1.2 — minor updates (typos, clarifications)
+
+  -   2.0 — major update, possible structural changes or new content
+
+### Who this guide is for
+
+The guide is aimed at researchers in NINA who are conducting literature searches and/or conducting systematic reviews (meta-analysis), evidence (systematic) maps, scoping reviews and other similar methodological approaches to summarising knowledge.
+
+### Scope and limitations
+
+The guide is focused on tools (and methods) related to searching for and screening literature that use artificial intelligence. The guide is limited to tools that are or can be used in evidence synthesis across the difference stages of a review (primarily search, screening, data extraction and risk of bias assessment). 
+
+Medicine and health are far advanced in terms of standardised reporting when compared to ecology. Many tools are designed for medical or health applications (that is where the money is!). We will mention tools in this field but will highlight where we see potential issues or risks for studies typical of ecology. 
+
+::: {.callout-note appearance="simple"}
+*Definitions*
+
+This box provides definitions of key terms used throughout the guide, with a focus on their relevance to evidence synthesis in environmental and ecological research.
+
+*Artificial Intelligence (AI)*
+
+AI refers to the development of computer systems capable of performing tasks that normally require human intelligence. In the context of evidence synthesis, AI is commonly used to support processes such as literature searching, screening, and data extraction, often by learning patterns in data and predicting human decisions.
+
+*Machine Learning (ML)*
+
+A subset of AI in which algorithms learn from data to make predictions or decisions without being explicitly programmed. In evidence synthesis, ML is often used to predict whether a study should be included based on past inclusion decisions.
+
+*Large Language Models (LLMs)*
+
+LLMs are a type of AI trained on massive amounts of text data to understand and generate human-like language. Tools powered by LLMs (e.g., ChatGPT, Elicit, Scite Assistant) can assist in tasks such as summarising papers, suggesting search terms, or even screening abstracts. They are not infallible and should be used with caution, especially for tasks requiring precision and transparency.
+
+*Automation Tools*
+
+Automation tools are software applications that streamline or perform parts of the evidence synthesis process, sometimes with the support of AI or rule-based algorithms. Examples include machine learning tools for screening (e.g., ASReview), tools for deduplication (e.g., revtools), and citation managers with AI-enhanced features (e.g., Rayyan).
+
+*Systematic Reviews*
+
+Systematic reviews are rigorous, transparent, and reproducible syntheses of research evidence, guided by a predefined protocol. They aim to minimise bias by using systematic methods for literature searching, screening, data extraction, and analysis. Systematic reviews are often used to inform policy, management, and research priorities. Systematic review may contain a meta-analysis - the statistical method of combining effects from different studies
+
+*Evidence Maps (Systematic Maps)*
+
+Systematic maps aim to provide an overview of the available evidence on a broad topic. Unlike systematic reviews, they do not usually attempt to answer a narrow causal question but instead catalogue, categorise, and describe studies. They are particularly useful for identifying knowledge gaps and clusters.
+
+*Scoping Reviews*
+
+Scoping reviews explore the breadth and nature of evidence on a topic, usually to clarify concepts or identify research questions. They are less structured than systematic reviews or maps but still follow transparent and replicable methods.
+
+*Human-in-the-Loop*
+
+A model of AI use where human experts remain involved in key decision points—training models, checking results, and making final decisions. This approach aims to balance efficiency gains with quality control and ethical oversight.
+
+
+
+*RAISE (Reporting Guideline for AI in Systematic Evidence Synthesis)*
+
+RAISE is a proposed reporting standard for how AI tools are used in systematic reviews and evidence syntheses. It emphasises transparency, reproducibility, and ethical considerations in AI-assisted workflows.
+
+:::
+
+
+# Background and Rationale
+
+Artificial Intelligence (AI) is rapidly transforming how researchers interact with scientific literature, offering new possibilities for conducting evidence syntheses more efficiently and systematically. In particular, AI and machine learning tools can assist with labour-intensive tasks such as literature searching, title and abstract screening, and even data extraction. This is especially relevant for environmental and ecological fields, where interdisciplinary topics and large volumes of grey literature often create substantial practical challenges for review teams.
+
+The use of AI in evidence synthesis is motivated by several key drivers:
+
+- **Efficiency**: Systematic reviews and maps can be time- and resource-intensive. AI can reduce time spent on repetitive tasks such as screening or identifying relevant literature, freeing researchers to focus on interpretation and synthesis.
+  
+- **Scalability**: As the volume of published research continues to grow exponentially, AI tools can help researchers manage large evidence bases more effectively.
+
+- **Consistency and Transparency**: When used appropriately, automation can reduce human error and increase the reproducibility of decisions during screening and search.
+
+However, the integration of AI tools into evidence synthesis also raises important concerns:
+
+- **Bias and Opaqueness**: Many AI tools—particularly those based on large language models (LLMs)—function as “black boxes,” making it difficult to understand how decisions are made. This can undermine the transparency and reproducibility that are cornerstones of systematic approaches.
+
+- **Over-reliance on Automation**: When human judgement is removed from key decisions, there is a risk of missing relevant studies or introducing subtle biases—particularly problematic in fields like conservation and ecology, where relevant evidence may be highly heterogeneous.
+
+- **Ethical and Practical Risks**: Emerging concerns around data privacy, intellectual property, and the environmental footprint of large-scale AI systems add further complexity to the adoption of these technologies.
+
+In response to these opportunities and challenges, several guidance documents have recently emerged. The **RAISE guidance** (Reporting Guideline for AI in Systematic Evidence Synthesis) provides a framework for responsible, transparent use of AI across review stages (RAISE Working Group, 2023).
+
+This guide aims to help researchers at NINA navigate this evolving landscape by introducing key concepts, highlighting tools and use cases, and offering practical advice on how to integrate AI responsibly into literature searches and screening processes for systematic reviews and maps.
+
+
+# When and Why to Use AI in Reviews
+
+Artificial Intelligence (AI) and automation can improve the speed, consistency, and scalability of evidence syntheses—but only when applied thoughtfully. This section outlines where AI can provide the most benefit in the review workflow, and offers guidance on balancing automation with human oversight to maintain transparency and methodological rigour.
+
+## Stages of Evidence Synthesis Where AI Can Help
+
+AI can support multiple stages of the review process, from initial scoping to final data extraction. The most common and effective applications include:
+
+### Scoping and Search Planning
+
+AI-powered tools can help identify relevant concepts, terms, and relationships during the early planning stages. Semantic search tools and large language models (LLMs) can suggest keywords, synonyms, and research questions, which may help refine the scope of a review or map. These tools are especially helpful for exploring unfamiliar fields or interdisciplinary topics.
+
+### Literature Searching
+
+AI tools can complement traditional database searches by enabling semantic or concept-based queries rather than relying solely on Boolean logic. While such tools should not replace systematic searches in structured databases, they can help surface relevant studies that might otherwise be missed and support horizon scanning or evidence surveillance.
+
+### Deduplication
+
+AI-enhanced citation management tools can support more accurate and efficient deduplication across databases. Some platforms use fuzzy matching or machine learning to identify duplicate records that traditional exact-match methods might miss, especially when metadata is inconsistent.
+
+### Title and Abstract Screening
+
+Machine learning models can be trained to prioritise or predict inclusion of studies based on previous screening decisions. Tools such as predictive ranking and active learning interfaces allow reviewers to focus on the most likely relevant studies first, which can significantly reduce workload while maintaining recall. This is one of the most mature and widely accepted uses of AI in evidence synthesis.
+
+### Full-Text Retrieval and Screening
+
+AI can assist in retrieving full-text PDFs and, in some cases, extract key content for screening. Although this stage is more challenging due to document complexity, some tools can highlight relevant sections or predict inclusion likelihood based on full-text analysis. Human review remains essential, but AI can help flag likely inclusions or exclusions.
+
+This aspect is under-developed for ecological studies due to the complexity and lack of standardisation in publishing. 
+
+### Data Extraction 
+
+Some tools use AI or rule-based approaches to assist with data extraction (e.g., identifying effect sizes or study characteristics). However, these are less mature and typically require substantial human validation. For most ecological reviews, manual extraction is still the norm, although automation may be useful for structured data such as publication metadata.
+
+## Decision-Making: When to Automate vs. When to Involve Human Judgment
+
+Not all review stages benefit equally from automation. Review teams should carefully consider:
+
+- **Risk of Bias**: Stages with a high risk of introducing bias (e.g. study inclusion decisions) should retain a strong human-in-the-loop component.
+- **Criticality of the Task**: For tasks that influence the direction of the review (e.g. interpreting results), human oversight is essential.
+- **Maturity of the Tool**: Some tools (e.g., for screening) are well-validated and widely used; others are still experimental.
+- **Transparency Requirements**: Where decisions need to be defensible (e.g. in policy-informing reviews), full transparency is essential.
+
+A good rule of thumb is to **automate tasks that are repetitive and low-risk**, while ensuring human oversight for any decisions that are interpretive, uncertain, or central to the review’s credibility.
+
+## Transparency and Reproducibility Considerations
+
+Using AI in reviews requires **explicit documentation and transparency**. It is critical to:
+
+- Record what tools were used, for what purpose, and how they were configured.
+- Describe how AI-assisted decisions were validated or checked by reviewers.
+- Make clear where automation began and ended—particularly in mixed workflows.
+- Ensure that any non-deterministic tools (e.g. LLMs) are used in ways that can be replicated or justified.
+
+Where possible, logs, training data, or model settings should be saved as supplementary materials. Teams should also be honest about the limitations of the tools they use, particularly if the methods may affect study inclusion or interpretation.
+
+Ultimately, AI should support—not replace—transparent, reproducible, and rigorous evidence synthesis.
+
+
+# Tools and Platforms
+
+There is a growing ecosystem of AI and automation tools available to support evidence synthesis. These range from specialist systematic review platforms to general-purpose AI assistants and citation managers with machine learning features.
+
+This section provides an overview of widely used tools, grouped by function. Tools mentioned here are either commonly used in environmental evidence syntheses or demonstrate strong potential for responsible use in this context. Always assess whether a tool aligns with your review’s scope, transparency requirements, and team expertise.
+
+## AI Tools for Literature Searching
+
+These tools assist with developing or running search strategies, usually by identifying relevant concepts, keywords, or papers based on semantic similarity rather than exact matches.
+
+### Elicit
+
+- **Description**: A research assistant built on large language models (LLMs) that helps identify related papers, extract summaries, and suggest keywords.
+- **Use cases**: Exploring unfamiliar topics, finding related work quickly, brainstorming inclusion criteria.
+- **Cautions**: Results are not reproducible (LLM output may vary), and the tool doesn’t replace formal database searches.
+
+### Iris.ai
+
+- **Description**: A semantic search tool for mapping out related research based on concepts, not just keywords.
+- **Use cases**: Early scoping, identifying clusters of related research, visualizing topic areas.
+- **Cautions**: Best used in combination with structured database searches; coverage may be limited depending on the data source.
+
+### Scopus AI / Dimensions AI Assistant
+
+- **Description**: AI-enhanced interfaces for structured databases that use natural language queries and suggest refinements.
+- **Use cases**: Iteratively refining a search strategy or identifying additional synonyms.
+- **Cautions**: May lack the transparency of traditional Boolean search queries; not suitable for final reproducible search strings.
+
+## AI Tools for Screening
+
+Screening is where AI currently offers the most reliable and validated benefits, especially for large reviews.
+
+### ASReview
+
+- **Description**: A free, open-source tool that uses active learning to prioritise references for title/abstract screening based on user feedback.
+- **Use cases**: Rapid screening of large datasets, prioritising likely-relevant studies early in the process.
+- **Key features**: Transparent interface, exportable logs, human-in-the-loop model training.
+- **Cautions**: Requires at least a few initial inclusion/exclusion decisions to train; still needs human validation throughout.
+
+### Rayyan
+
+- **Description**: A web-based screening platform with optional machine learning support.
+- **Use cases**: Collaborative screening; quick initial filtering of abstracts.
+- **Key features**: Tagging, blinding, ML-based inclusion suggestions.
+- **Cautions**: ML suggestions are not transparent; use with reviewer discretion and always validate outputs.
+
+### Colandr
+
+- **Description**: A free platform combining planning, screening, and data extraction with AI support.
+- **Use cases**: Smaller or exploratory reviews; all-in-one environment.
+- **Cautions**: Less frequently maintained and may have usability issues; outputs should be checked for reproducibility.
+
+### RobotAnalyst / Abstrackr
+
+- **Description**: Machine learning–based screening tools developed primarily for biomedical reviews.
+- **Use cases**: Supplementing manual screening where large datasets are involved.
+- **Cautions**: Interfaces can be outdated; setup may require data formatting effort.
+
+## Supporting Tools and Utilities
+
+### revtools (R package)
+
+- **Description**: A suite of tools for reference management and screening in R, including deduplication, visual topic modelling, and similarity analysis.
+- **Use cases**: Custom screening workflows, deduplication, prioritizing by topic clusters.
+- **Cautions**: Requires familiarity with R; not fully automated.
+
+### SRA tools (Systematic Review Accelerator)
+
+- **Description**: A collection of browser-based tools for screening, search translation, and deduplication.
+- **Use cases**: Translating Boolean searches between databases, checking for duplicates, managing records.
+- **Cautions**: Automation is mostly rule-based (not AI); not integrated with AI screening tools.
+
+## Choosing the Right Tool
+
+When selecting tools, consider:
+
+- **Type of review** (e.g. systematic map vs. rapid review)
+- **Stage of synthesis** (searching, screening, extraction)
+- **Need for transparency** (can decisions be documented?)
+- **Team size and skills** (technical comfort with AI tools or R)
+- **Reproducibility requirements** (can outputs be saved and shared?)
+
+The use of AI should be **clearly documented** in your protocol and final report. Wherever possible, export and archive training decisions, screening logs, and settings used.
+
+
+# Ethical and Practical Considerations
+
+The use of AI and automation in evidence synthesis introduces new ethical, technical, and practical considerations. While these tools offer clear benefits—especially for managing large evidence bases—they also raise important questions around transparency, accountability, fairness, and environmental impact.
+
+This section outlines key considerations to keep in mind when integrating AI into review workflows.
+
+## Human-in-the-Loop Is Essential
+
+AI should assist, not replace, expert judgement. While some tools can suggest which studies to prioritise or highlight key information, they should not make final inclusion, exclusion, or interpretation decisions without human oversight.
+
+Maintaining a **human-in-the-loop** model helps:
+
+- Catch mistakes or biases in AI predictions
+
+- Ensure nuanced decisions (e.g. assessing relevance or context)
+
+- Preserve the methodological integrity of the review
+
+Teams should clearly define which steps are automated, and which require human review, and communicate this in both protocols and final outputs.
+
+## Risk of Bias and Exclusion
+
+AI models learn from data, and if that data contains bias, the models may reinforce it. This is particularly important in:
+
+- **Screening decisions**: AI models trained on early decisions may exclude relevant but atypical studies.
+
+- **Literature searches**: Semantic search or LLM tools may prioritize well-published, Western, or English-language research, marginalizing underrepresented voices or gray literature.
+
+- **Data extraction**: If models are trained on specific study types (e.g. medical trials), they may misinterpret ecological studies.
+
+To mitigate these risks:
+
+- Monitor AI outputs for systematic exclusions
+
+- Use diverse and representative training examples when possible
+
+- Continue dual or consensus-based human checks for key decisions
+
+## Transparency and Documentation
+
+Transparency is critical when using AI in evidence synthesis. Reviewers and stakeholders need to understand:
+
+- What tools were used and why
+
+- How models were trained or tuned
+
+- How outputs were validated or interpreted
+
+You should document:
+
+- The name and version of each AI tool used
+
+- Which review stages were assisted or automated
+
+- How AI decisions were reviewed or validated
+
+- Any known limitations of the tools
+
+This information should be included in both the protocol and the methods section of the final report. Where possible, export logs, training sets, or model parameters for future reference or replication.
+
+## Data Privacy and Security
+
+Some AI tools (especially cloud-based ones) require uploading bibliographic data or full texts. Before doing so, consider:
+
+- Whether this data includes unpublished or proprietary content
+
+- Whether the platform stores or uses the data to train models
+
+- Institutional or project-specific data policies (e.g. GDPR compliance)
+
+Where sensitive or private data is involved, use locally run tools (e.g. ASReview offline) or ensure that cloud tools meet appropriate security standards.
+
+## Environmental and Social Impacts of AI
+
+While often overlooked, AI tools—particularly large language models—have real environmental and social costs. These include:
+
+- High energy use and carbon emissions during model training and operation
+
+- Unequal access to computational resources, reinforcing global research inequalities
+
+- Ethical concerns around how training data is collected and used
+
+Where possible, choose lightweight, open-source tools, and avoid overuse of general-purpose LLMs for tasks that could be achieved more efficiently with traditional methods.
+
+## Skills and Capacity Building
+
+Adopting AI tools requires training and capacity building. Teams should:
+
+- Make time to learn and test tools before using them in a live review
+
+- Choose tools aligned with their technical comfort level
+
+- Share lessons learned with colleagues to build institutional capacity
+
+Remember that no tool is "plug-and-play"—effective use requires judgement, trial-and-error, and clear team communication.
+
+## Equity and Accessibility
+
+Ensure that the tools and methods you use do not disadvantage collaborators or stakeholders:
+
+- Are tools free and open-source, or behind paywalls?
+
+- Do they require high-speed internet or modern hardware?
+
+- Are outputs understandable to non-technical audiences?
+
+Whenever possible, opt for inclusive, transparent tools that allow collaboration across geographic and institutional boundaries.
+
+# Best Practices and Recommendations
+
+-   Always validate AI outputs with expert input
+-   Start small: pilot with AI-assisted screening
+-   Document AI use and decisions clearly
+-   Keep up-to-date with tools and standards
+
+# Assessing AI Models in Literature Reviews
+
+As AI tools become more common in evidence synthesis, researchers must understand how to assess their reliability, appropriateness, and impact. Whether using a machine learning tool for screening, a semantic search engine, or a large language model (LLM) to summarise findings, it is essential to evaluate how well these tools perform and what risks they may introduce.
+
+
+## Why Assessment Matters
+
+AI tools influence which studies are included, prioritised, or excluded. If these decisions are flawed or biased, they may distort the evidence base. Assessment helps ensure:
+
+- **Transparency**: Stakeholders can understand how tools influenced results.
+
+- **Accountability**: Review teams remain responsible for the decisions AI assists with.
+
+- **Reproducibility**: Others can evaluate or replicate your process.
+
+- **Equity**: AI does not systematically disadvantage certain types of evidence or sources.
+
+## Key Dimensions of Assessment
+
+The following dimensions can guide assessment of AI tools or models in the context of literature reviews:
+
+### Relevance and Fit-for-Purpose
+
+- Is the tool designed for your task (e.g., screening, search, extraction)?
+- Does it support the types of literature and disciplines in your review?
+- Is the model trained on data relevant to environmental/ecological research?
+
+### Performance and Accuracy
+
+Evaluating how well an AI tool performs compared to human decisions is essential, particularly for screening tasks. This helps ensure the tool doesn't miss relevant studies or overwhelm reviewers with irrelevant ones.
+
+The most commonly used metrics to assess classification performance are:
+
+#### Sensitivity (Recall)
+- **Definition**: The proportion of relevant studies correctly identified by the AI.
+- **Why it matters**: In reviews, missing relevant studies can introduce bias, so **high sensitivity** is usually more important than perfect precision.
+- **Formula**:  
+  `Sensitivity = True Positives / (True Positives + False Negatives)`
+
+#### Specificity
+- **Definition**: The proportion of irrelevant studies correctly excluded by the AI.
+- **Why it matters**: Helps assess whether the AI avoids burdening the reviewer with too many irrelevant studies.
+- **Formula**:  
+  `Specificity = True Negatives / (True Negatives + False Positives)`
+
+#### Precision (Positive Predictive Value)
+- **Definition**: The proportion of studies the AI marked as relevant that truly are relevant.
+- **Why it matters**: High precision reduces the time spent validating false positives.
+- **Formula**:  
+  `Precision = True Positives / (True Positives + False Positives)`
+
+#### Accuracy
+- **Definition**: The proportion of all decisions (relevant and irrelevant) that the AI got right.
+- **Caution**: Can be misleading in imbalanced datasets (e.g., if most studies are irrelevant).
+- **Formula**:  
+  `Accuracy = (True Positives + True Negatives) / Total`
+
+#### F1 Score
+- **Definition**: The harmonic mean of precision and recall.
+- **Why it matters**: A single score that balances sensitivity and precision, especially useful when the dataset is imbalanced.
+- **Formula**:  
+  `F1 = 2 × (Precision × Recall) / (Precision + Recall)`
+
+---
+
+#### Example: Screening AI for Title/Abstract Inclusion
+
+
+|                            | Human: Include | Human: Exclude |
+|----------------------------|----------------|----------------|
+| **AI: Include**            | 45 (TP)        | 15 (FP)        |
+| **AI: Exclude**            | 5 (FN)         | 135 (TN)       |
+
+- **Sensitivity** = 45 / (45 + 5) = 0.90  
+- **Specificity** = 135 / (135 + 15) = 0.90  
+- **Precision** = 45 / (45 + 15) = 0.75  
+- **F1 Score** = 2 × (0.75 × 0.90) / (0.75 + 0.90) ≈ 0.82
+
+
+This tells us the model is good at identifying relevant studies (high sensitivity), but some irrelevant studies still slip through (lower precision).
+
+---
+
+### Practical Tips
+
+- For **systematic reviews**, prioritise **sensitivity (recall)** to avoid missing relevant evidence.
+- Use **precision and F1** to evaluate trade-offs when working under time constraints or in rapid reviews.
+- Create a **confusion matrix** (as above) using a subset of records that have been screened manually.
+- Avoid relying solely on accuracy unless your dataset is well-balanced.
+
+Some tools will calculate these metrics automatically as you screen, while others may require manual calculation using a validation dataset.
+
+---
+
+
+
+### **Transparency and Explainability**
+
+- Is the algorithm or model transparent (e.g., open source)?
+- Can you understand why the AI made specific decisions?
+- Are logs or training data accessible?
+
+
+### **Bias and Fairness**
+
+- Does the tool show systematic bias (e.g., against gray literature or non-English studies)?
+- Was the training data diverse?
+- Have you reviewed outputs for under-representation of certain sources?
+
+### **Robustness and Reproducibility**
+
+- Are outputs consistent across repeated runs?
+- Do results change based on small differences in input data?
+- Can other teams reproduce your results using the same AI settings?
+
+LLMs (like ChatGPT) are **non-deterministic** — meaning outputs vary — which reduces reproducibility unless tightly controlled.
+
+### **Human Oversight and Validation**
+
+- How much human validation is built into the workflow?
+- Are critical decisions (e.g., inclusion/exclusion) checked by a second reviewer?
+- Is there documentation of reviewer-AI interaction?
+
+### **Documentation and Reporting**
+
+- Is tool usage reported transparently (tool name, version, parameters)?
+- Are AI-assisted stages clearly marked in the methods?
+- Have limitations of the tool been acknowledged?
+
+## Practical Steps to Assess an AI Tool
+
+1. **Pilot the tool** on a small subset of your dataset
+2. **Compare AI results to human decisions**
+3. **Log and save all settings** (e.g., screening thresholds, model choices)
+4. **Validate a sample** of AI outputs independently
+5. **Document everything** clearly in your review protocol and report
+
+## When Not to Use AI
+
+You should **avoid using AI models** in your review when
+
+- The tool’s output cannot be explained or checked
+
+- You cannot validate the tool’s performance
+
+- The tool was trained on irrelevant or biased data
+
+- The review has high policy or legal sensitivity requiring maximal transparency
+
+
+# How to Report AI Use in Your Review
+
+-   Suggested reporting items (aligned with ROSES, PRISMA and RAISE)
+-   Examples of good documentation
+-   Supplementary materials (e.g., exported AI logs or model training data)
+
+# Resources and Further Reading
+
+-   Links to:
+    -   Tool websites
+    -   Tutorials and videos
+    -   Guidance documents (RAISE, PRISMA 2020, etc.)
+-   Key publications and reviews
+
+
+## Example Protocol Language for AI Use
+
+## Template for Reporting AI Use
