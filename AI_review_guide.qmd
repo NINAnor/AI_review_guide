@@ -69,6 +69,7 @@ Automation tools are software applications that streamline or perform parts of t
 
 Systematic reviews are rigorous, transparent, and reproducible syntheses of research evidence, guided by a predefined protocol. They aim to minimise bias by using systematic methods for literature searching, screening, data extraction, and analysis. Systematic reviews are often used to inform policy, management, and research priorities. Systematic reviews may contain a meta-analysis - the statistical method of combining effects from different studies.
 
+
 *Evidence Maps (Systematic Maps)*
 
 Systematic maps aim to provide an overview of the available evidence on a broad topic. Unlike systematic reviews, they do not usually attempt to answer a narrow causal question but instead catalogue, categorise, and describe studies. They are particularly useful for identifying knowledge gaps and clusters.
