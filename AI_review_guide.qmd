@@ -40,7 +40,7 @@ The guide is aimed at researchers in NINA who are conducting literature searches
 
 ### Scope and limitations
 
-The guide is focused on tools (and methods) related to searching for and screening literature that use artificial intelligence. The guide is limited to tools that are or can be used in evidence synthesis across the difference stages of a review (primarily search, screening, data extraction and risk of bias assessment). 
+The guide is focused on tools (and methods) that use artificial intelligence related to searching for and screening literature. The guide is limited to tools that are or can be used in evidence synthesis across the different stages of a review (primarily search, screening, data extraction and risk of bias assessment). 
 
 Medicine and health are far advanced in terms of standardised reporting when compared to ecology. Many tools are designed for medical or health applications (that is where the money is!). We will mention tools in this field but will highlight where we see potential issues or risks for studies typical of ecology. 
 
@@ -67,7 +67,7 @@ Automation tools are software applications that streamline or perform parts of t
 
 *Systematic Reviews*
 
-Systematic reviews are rigorous, transparent, and reproducible syntheses of research evidence, guided by a predefined protocol. They aim to minimise bias by using systematic methods for literature searching, screening, data extraction, and analysis. Systematic reviews are often used to inform policy, management, and research priorities. Systematic review may contain a meta-analysis - the statistical method of combining effects from different studies
+Systematic reviews are rigorous, transparent, and reproducible syntheses of research evidence, guided by a predefined protocol. They aim to minimise bias by using systematic methods for literature searching, screening, data extraction, and analysis. Systematic reviews are often used to inform policy, management, and research priorities. Systematic reviews may contain a meta-analysis - the statistical method of combining effects from different studies.
 
 *Evidence Maps (Systematic Maps)*
 
@@ -285,7 +285,7 @@ AI models learn from data, and if that data contains bias, the models may reinfo
 
 - **Screening decisions**: AI models trained on early decisions may exclude relevant but atypical studies.
 
-- **Literature searches**: Semantic search or LLM tools may prioritize well-published, Western, or English-language research, marginalizing underrepresented voices or gray literature.
+- **Literature searches**: Semantic search or LLM tools may prioritize well-published, Western, or English-language research, marginalizing under-represented voices or grey literature. The search results may be limited by the coverage of the database on which the tool was developed. 
 
 - **Data extraction**: If models are trained on specific study types (e.g. medical trials), they may misinterpret ecological studies.
 
@@ -479,7 +479,7 @@ Some tools will calculate these metrics automatically as you screen, while other
 
 ### **Bias and Fairness**
 
-- Does the tool show systematic bias (e.g., against gray literature or non-English studies)?
+- Does the tool show systematic bias (e.g., against grey literature or non-English studies)?
 - Was the training data diverse?
 - Have you reviewed outputs for under-representation of certain sources?
 
