@@ -1,0 +1,119 @@
+---
+title: "AI in Evidence Synthesis: Fast-Moving Tools, Slow-Moving Trust"
+author: "Matt Grainger"
+date: today
+format: revealjs
+theme: dracula
+slide-number: true
+---
+
+## 
+
+> “There’s AI tools coming up all over the place...The real problem is that the technology and the tools are running ahead of the evidence" Prof. James Thomas
+
+## Why am **I** talking about this today?
+
+![](https://media.giphy.com/media/v1.Y2lkPWVjZjA1ZTQ3cDMzODBydHZucms4Nnd4anFhbXBoMjBnNG5iczdveWdvamhoZ3o1ayZlcD12MV9naWZzX3NlYXJjaCZjdD1n/sgFhF71Ht1srZAwG4z/giphy.gif)
+
+::: notes
+Evidence syntheses need to be transparent and repeatable—not just for academic rigour, but because they often feed directly into decisions about policy, conservation, and land management. If we cannot explain or repeat how results were generated (especially when AI is involved), we risk undermining trust in the evidence.
+:::
+
+## Two wolves inside of me
+
+![](images/4wg8o5.jpg)
+
+## 
+
+![](images/Wolf.jpg)
+
+## 
+
+> ## “AI can screen thousands of studies in seconds — but should we trust the results?”
+
+## The Current Landscape
+
+**Evidence synthesis challenges**\
+- High volume of studies\
+- Increasing methodological complexity\
+- Pressure for timely outputs
+
+**Where AI is entering**\
+- Literature searching\
+- Screening\
+- Data extraction\
+- Synthesis
+
+## Fast-Moving Tools
+
+**"Recent" AI-enabled tools**\
+- AI-assisted title/abstract screening\
+- Semantic search\
+- Automatic tagging/classification\
+- Automated meta-analysis pipelines
+
+## Slow-Moving Trust
+
+**Why adoption lags**\
+- Opaqueness of algorithms\
+- Lack of validation in ecological contexts\
+- Reproducibility concerns\
+- Risk of introducing bias
+
+⚖️ *Trust is built slower than tools are built*
+
+## The Transparency Gap
+
+-   Evidence synthesis norms: reproducibility, transparency, documentation\
+-   AI challenges these norms:
+    -   Closed models\
+    -   Proprietary data\
+    -   Outputs change as models update
+
+## Frameworks for Assessment
+
+**RAISE** — key criteria:\
+1. Accuracy & validation\
+2. Transparency\
+3. Reproducibility\
+4. Bias assessment\
+5. Domain fit
+
+## Building Trust
+
+**Bridging the gap**\
+- Benchmark AI in the *target field*\
+- Use human–AI hybrid workflows\
+- Document every AI-assisted decision\
+- Train reviewers to critically interpret AI outputs
+
+## Future Outlook
+
+**Trends to watch**\
+- Domain-specific AI models for ecology\
+- Fully integrated AI pipelines from search → synthesis\
+- Automated meta-analyses
+
+**Key questions**\
+- What do we automate?\
+- What do we verify manually?\
+- Who is accountable?
+
+## Key Takeaways
+
+-   AI can *dramatically* speed up evidence synthesis\
+-   Trust demands transparent, context-specific validation\
+-   Ecology needs its own benchmarks\
+-   Human oversight is still essential
+
+## Help wanted!
+
+![](https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExMTgzd2p6aGY0eHdwNHo1Z3c3cXoxcW03am4zaWoyMjY3M29yNm1rbiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9dg/MjhGi9u6UJlU873Ml4/giphy.gif)
+
+We need better benchmarks: How long do review tasks really take in ecology? Without this, we cannot fairly assess claims that AI tools save time or increase efficiency.
+
+## 
+
+> ### Real stupidity beats artificial intelligence every time
+
+![](images/Terry_Pratchet.jpg){fig-align="center" width="30%"}
