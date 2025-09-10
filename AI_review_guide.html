@@ -1,0 +1,1210 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.42">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Matt Grainger">
+<meta name="author" content="Frode Thomassen Singsaas">
+
+<title>Guide to Using AI in Literature Searching and Screening for Evidence Syntheses</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="AI_review_guide_files/libs/clipboard/clipboard.min.js"></script>
+<script src="AI_review_guide_files/libs/quarto-html/quarto.js"></script>
+<script src="AI_review_guide_files/libs/quarto-html/popper.min.js"></script>
+<script src="AI_review_guide_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="AI_review_guide_files/libs/quarto-html/anchor.min.js"></script>
+<link href="AI_review_guide_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="AI_review_guide_files/libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="AI_review_guide_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="AI_review_guide_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="AI_review_guide_files/libs/bootstrap/bootstrap-1bc8a17f135ab3d594c857e9f48e611b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+
+
+</head>
+
+<body>
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+<div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+  <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">1</span> Introduction</a>
+  <ul class="collapse">
+  <li><a href="#purpose-of-this-guide" id="toc-purpose-of-this-guide" class="nav-link" data-scroll-target="#purpose-of-this-guide"><span class="header-section-number">1.0.1</span> Purpose of this guide</a></li>
+  <li><a href="#who-this-guide-is-for" id="toc-who-this-guide-is-for" class="nav-link" data-scroll-target="#who-this-guide-is-for"><span class="header-section-number">1.0.2</span> Who this guide is for</a></li>
+  <li><a href="#scope-and-limitations" id="toc-scope-and-limitations" class="nav-link" data-scroll-target="#scope-and-limitations"><span class="header-section-number">1.0.3</span> Scope and limitations</a></li>
+  </ul></li>
+  <li><a href="#background-and-rationale" id="toc-background-and-rationale" class="nav-link" data-scroll-target="#background-and-rationale"><span class="header-section-number">2</span> Background and Rationale</a></li>
+  <li><a href="#when-and-why-to-use-ai-in-reviews" id="toc-when-and-why-to-use-ai-in-reviews" class="nav-link" data-scroll-target="#when-and-why-to-use-ai-in-reviews"><span class="header-section-number">3</span> When and Why to Use AI in Reviews</a>
+  <ul class="collapse">
+  <li><a href="#stages-of-evidence-synthesis-where-ai-can-help" id="toc-stages-of-evidence-synthesis-where-ai-can-help" class="nav-link" data-scroll-target="#stages-of-evidence-synthesis-where-ai-can-help"><span class="header-section-number">3.1</span> Stages of Evidence Synthesis Where AI Can Help</a>
+  <ul class="collapse">
+  <li><a href="#scoping-and-search-planning" id="toc-scoping-and-search-planning" class="nav-link" data-scroll-target="#scoping-and-search-planning"><span class="header-section-number">3.1.1</span> Scoping and Search Planning</a></li>
+  <li><a href="#literature-searching" id="toc-literature-searching" class="nav-link" data-scroll-target="#literature-searching"><span class="header-section-number">3.1.2</span> Literature Searching</a></li>
+  <li><a href="#deduplication" id="toc-deduplication" class="nav-link" data-scroll-target="#deduplication"><span class="header-section-number">3.1.3</span> Deduplication</a></li>
+  <li><a href="#title-and-abstract-screening" id="toc-title-and-abstract-screening" class="nav-link" data-scroll-target="#title-and-abstract-screening"><span class="header-section-number">3.1.4</span> Title and Abstract Screening</a></li>
+  <li><a href="#full-text-retrieval-and-screening" id="toc-full-text-retrieval-and-screening" class="nav-link" data-scroll-target="#full-text-retrieval-and-screening"><span class="header-section-number">3.1.5</span> Full-Text Retrieval and Screening</a></li>
+  <li><a href="#data-extraction" id="toc-data-extraction" class="nav-link" data-scroll-target="#data-extraction"><span class="header-section-number">3.1.6</span> Data Extraction</a></li>
+  </ul></li>
+  <li><a href="#decision-making-when-to-automate-vs.-when-to-involve-human-judgment" id="toc-decision-making-when-to-automate-vs.-when-to-involve-human-judgment" class="nav-link" data-scroll-target="#decision-making-when-to-automate-vs.-when-to-involve-human-judgment"><span class="header-section-number">3.2</span> Decision-Making: When to Automate vs.&nbsp;When to Involve Human Judgment</a></li>
+  <li><a href="#transparency-and-reproducibility-considerations" id="toc-transparency-and-reproducibility-considerations" class="nav-link" data-scroll-target="#transparency-and-reproducibility-considerations"><span class="header-section-number">3.3</span> Transparency and Reproducibility Considerations</a></li>
+  </ul></li>
+  <li><a href="#tools-and-platforms" id="toc-tools-and-platforms" class="nav-link" data-scroll-target="#tools-and-platforms"><span class="header-section-number">4</span> Tools and Platforms</a>
+  <ul class="collapse">
+  <li><a href="#ai-tools-for-literature-searching" id="toc-ai-tools-for-literature-searching" class="nav-link" data-scroll-target="#ai-tools-for-literature-searching"><span class="header-section-number">4.1</span> AI Tools for Literature Searching</a>
+  <ul class="collapse">
+  <li><a href="#elicit" id="toc-elicit" class="nav-link" data-scroll-target="#elicit"><span class="header-section-number">4.1.1</span> Elicit</a></li>
+  <li><a href="#iris.ai" id="toc-iris.ai" class="nav-link" data-scroll-target="#iris.ai"><span class="header-section-number">4.1.2</span> Iris.ai</a></li>
+  <li><a href="#scopus-ai-dimensions-ai-assistant" id="toc-scopus-ai-dimensions-ai-assistant" class="nav-link" data-scroll-target="#scopus-ai-dimensions-ai-assistant"><span class="header-section-number">4.1.3</span> Scopus AI / Dimensions AI Assistant</a></li>
+  </ul></li>
+  <li><a href="#ai-tools-for-screening" id="toc-ai-tools-for-screening" class="nav-link" data-scroll-target="#ai-tools-for-screening"><span class="header-section-number">4.2</span> AI Tools for Screening</a>
+  <ul class="collapse">
+  <li><a href="#asreview" id="toc-asreview" class="nav-link" data-scroll-target="#asreview"><span class="header-section-number">4.2.1</span> ASReview</a></li>
+  <li><a href="#rayyan" id="toc-rayyan" class="nav-link" data-scroll-target="#rayyan"><span class="header-section-number">4.2.2</span> Rayyan</a></li>
+  <li><a href="#colandr" id="toc-colandr" class="nav-link" data-scroll-target="#colandr"><span class="header-section-number">4.2.3</span> Colandr</a></li>
+  <li><a href="#robotanalyst-abstrackr" id="toc-robotanalyst-abstrackr" class="nav-link" data-scroll-target="#robotanalyst-abstrackr"><span class="header-section-number">4.2.4</span> RobotAnalyst / Abstrackr</a></li>
+  </ul></li>
+  <li><a href="#supporting-tools-and-utilities" id="toc-supporting-tools-and-utilities" class="nav-link" data-scroll-target="#supporting-tools-and-utilities"><span class="header-section-number">4.3</span> Supporting Tools and Utilities</a>
+  <ul class="collapse">
+  <li><a href="#revtools-r-package" id="toc-revtools-r-package" class="nav-link" data-scroll-target="#revtools-r-package"><span class="header-section-number">4.3.1</span> revtools (R package)</a></li>
+  <li><a href="#sra-tools-systematic-review-accelerator" id="toc-sra-tools-systematic-review-accelerator" class="nav-link" data-scroll-target="#sra-tools-systematic-review-accelerator"><span class="header-section-number">4.3.2</span> SRA tools (Systematic Review Accelerator)</a></li>
+  </ul></li>
+  <li><a href="#choosing-the-right-tool" id="toc-choosing-the-right-tool" class="nav-link" data-scroll-target="#choosing-the-right-tool"><span class="header-section-number">4.4</span> Choosing the Right Tool</a></li>
+  </ul></li>
+  <li><a href="#ethical-and-practical-considerations" id="toc-ethical-and-practical-considerations" class="nav-link" data-scroll-target="#ethical-and-practical-considerations"><span class="header-section-number">5</span> Ethical and Practical Considerations</a>
+  <ul class="collapse">
+  <li><a href="#human-in-the-loop-is-essential" id="toc-human-in-the-loop-is-essential" class="nav-link" data-scroll-target="#human-in-the-loop-is-essential"><span class="header-section-number">5.1</span> Human-in-the-Loop Is Essential</a></li>
+  <li><a href="#risk-of-bias-and-exclusion" id="toc-risk-of-bias-and-exclusion" class="nav-link" data-scroll-target="#risk-of-bias-and-exclusion"><span class="header-section-number">5.2</span> Risk of Bias and Exclusion</a></li>
+  <li><a href="#transparency-and-documentation" id="toc-transparency-and-documentation" class="nav-link" data-scroll-target="#transparency-and-documentation"><span class="header-section-number">5.3</span> Transparency and Documentation</a></li>
+  <li><a href="#data-privacy-and-security" id="toc-data-privacy-and-security" class="nav-link" data-scroll-target="#data-privacy-and-security"><span class="header-section-number">5.4</span> Data Privacy and Security</a></li>
+  <li><a href="#environmental-and-social-impacts-of-ai" id="toc-environmental-and-social-impacts-of-ai" class="nav-link" data-scroll-target="#environmental-and-social-impacts-of-ai"><span class="header-section-number">5.5</span> Environmental and Social Impacts of AI</a></li>
+  <li><a href="#skills-and-capacity-building" id="toc-skills-and-capacity-building" class="nav-link" data-scroll-target="#skills-and-capacity-building"><span class="header-section-number">5.6</span> Skills and Capacity Building</a></li>
+  <li><a href="#equity-and-accessibility" id="toc-equity-and-accessibility" class="nav-link" data-scroll-target="#equity-and-accessibility"><span class="header-section-number">5.7</span> Equity and Accessibility</a></li>
+  </ul></li>
+  <li><a href="#best-practices-and-recommendations" id="toc-best-practices-and-recommendations" class="nav-link" data-scroll-target="#best-practices-and-recommendations"><span class="header-section-number">6</span> Best Practices and Recommendations</a></li>
+  <li><a href="#assessing-ai-models-in-literature-reviews" id="toc-assessing-ai-models-in-literature-reviews" class="nav-link" data-scroll-target="#assessing-ai-models-in-literature-reviews"><span class="header-section-number">7</span> Assessing AI Models in Literature Reviews</a>
+  <ul class="collapse">
+  <li><a href="#why-assessment-matters" id="toc-why-assessment-matters" class="nav-link" data-scroll-target="#why-assessment-matters"><span class="header-section-number">7.1</span> Why Assessment Matters</a></li>
+  <li><a href="#key-dimensions-of-assessment" id="toc-key-dimensions-of-assessment" class="nav-link" data-scroll-target="#key-dimensions-of-assessment"><span class="header-section-number">7.2</span> Key Dimensions of Assessment</a>
+  <ul class="collapse">
+  <li><a href="#relevance-and-fit-for-purpose" id="toc-relevance-and-fit-for-purpose" class="nav-link" data-scroll-target="#relevance-and-fit-for-purpose"><span class="header-section-number">7.2.1</span> Relevance and Fit-for-Purpose</a></li>
+  <li><a href="#performance-and-accuracy" id="toc-performance-and-accuracy" class="nav-link" data-scroll-target="#performance-and-accuracy"><span class="header-section-number">7.2.2</span> Performance and Accuracy</a></li>
+  <li><a href="#practical-tips" id="toc-practical-tips" class="nav-link" data-scroll-target="#practical-tips"><span class="header-section-number">7.2.3</span> Practical Tips</a></li>
+  <li><a href="#transparency-and-explainability" id="toc-transparency-and-explainability" class="nav-link" data-scroll-target="#transparency-and-explainability"><span class="header-section-number">7.2.4</span> <strong>Transparency and Explainability</strong></a></li>
+  <li><a href="#bias-and-fairness" id="toc-bias-and-fairness" class="nav-link" data-scroll-target="#bias-and-fairness"><span class="header-section-number">7.2.5</span> <strong>Bias and Fairness</strong></a></li>
+  <li><a href="#robustness-and-reproducibility" id="toc-robustness-and-reproducibility" class="nav-link" data-scroll-target="#robustness-and-reproducibility"><span class="header-section-number">7.2.6</span> <strong>Robustness and Reproducibility</strong></a></li>
+  <li><a href="#human-oversight-and-validation" id="toc-human-oversight-and-validation" class="nav-link" data-scroll-target="#human-oversight-and-validation"><span class="header-section-number">7.2.7</span> <strong>Human Oversight and Validation</strong></a></li>
+  <li><a href="#documentation-and-reporting" id="toc-documentation-and-reporting" class="nav-link" data-scroll-target="#documentation-and-reporting"><span class="header-section-number">7.2.8</span> <strong>Documentation and Reporting</strong></a></li>
+  </ul></li>
+  <li><a href="#practical-steps-to-assess-an-ai-tool" id="toc-practical-steps-to-assess-an-ai-tool" class="nav-link" data-scroll-target="#practical-steps-to-assess-an-ai-tool"><span class="header-section-number">7.3</span> Practical Steps to Assess an AI Tool</a></li>
+  <li><a href="#when-not-to-use-ai" id="toc-when-not-to-use-ai" class="nav-link" data-scroll-target="#when-not-to-use-ai"><span class="header-section-number">7.4</span> When Not to Use AI</a></li>
+  </ul></li>
+  <li><a href="#how-to-report-ai-use-in-your-review" id="toc-how-to-report-ai-use-in-your-review" class="nav-link" data-scroll-target="#how-to-report-ai-use-in-your-review"><span class="header-section-number">8</span> How to Report AI Use in Your Review</a>
+  <ul class="collapse">
+  <li><a href="#suggested-reporting-items" id="toc-suggested-reporting-items" class="nav-link" data-scroll-target="#suggested-reporting-items"><span class="header-section-number">8.1</span> Suggested Reporting Items</a></li>
+  <li><a href="#examples-of-good-documentation" id="toc-examples-of-good-documentation" class="nav-link" data-scroll-target="#examples-of-good-documentation"><span class="header-section-number">8.2</span> Examples of Good Documentation</a></li>
+  <li><a href="#supplementary-materials" id="toc-supplementary-materials" class="nav-link" data-scroll-target="#supplementary-materials"><span class="header-section-number">8.3</span> Supplementary Materials</a></li>
+  </ul></li>
+  <li><a href="#resources-and-further-reading" id="toc-resources-and-further-reading" class="nav-link" data-scroll-target="#resources-and-further-reading"><span class="header-section-number">9</span> Resources and Further Reading</a>
+  <ul class="collapse">
+  <li><a href="#tool-websites" id="toc-tool-websites" class="nav-link" data-scroll-target="#tool-websites"><span class="header-section-number">9.0.1</span> Tool Websites</a></li>
+  <li><a href="#guidance-documents" id="toc-guidance-documents" class="nav-link" data-scroll-target="#guidance-documents"><span class="header-section-number">9.0.2</span> Guidance Documents</a></li>
+  <li><a href="#key-publications-and-reviews" id="toc-key-publications-and-reviews" class="nav-link" data-scroll-target="#key-publications-and-reviews"><span class="header-section-number">9.0.3</span> Key Publications and Reviews</a></li>
+  </ul></li>
+  </ul>
+</nav>
+</div>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Guide to Using AI in Literature Searching and Screening for Evidence Syntheses</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Authors</div>
+    <div class="quarto-title-meta-contents">
+             <p>Matt Grainger </p>
+             <p>Frode Thomassen Singsaas </p>
+          </div>
+  </div>
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p><strong>Version:</strong> 0.1</p>
+<div style="position: fixed; margin-top: 10%; margin-left:5%; font-size: 120px; font-weight: 900; color: #CCCCCC; rotate: -45deg; z-index:-999;">DRAFT</div>
+<section id="introduction" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Introduction</h1>
+<section id="purpose-of-this-guide" class="level3" data-number="1.0.1">
+<h3 data-number="1.0.1" class="anchored" data-anchor-id="purpose-of-this-guide"><span class="header-section-number">1.0.1</span> Purpose of this guide</h3>
+<p>The guide aims to assist researchers in navigating the use of AI tools in research synthesis.</p>
+<p>This guide is a “living document” that will be updated periodically. The document will use <code>version control</code> following this format:</p>
+<ul>
+<li><p>0.1 — very early draft</p></li>
+<li><p>0.2, 0.5, 0.9 — incremental drafts approaching maturity</p></li>
+<li><p>1.0 — first “official” release or published version</p></li>
+<li><p>1.1, 1.2 — minor updates (typos, clarifications)</p></li>
+<li><p>2.0 — major update, possible structural changes or new content</p></li>
+</ul>
+</section>
+<section id="who-this-guide-is-for" class="level3" data-number="1.0.2">
+<h3 data-number="1.0.2" class="anchored" data-anchor-id="who-this-guide-is-for"><span class="header-section-number">1.0.2</span> Who this guide is for</h3>
+<p>The guide is aimed at researchers in NINA who are conducting literature searches and/or conducting systematic reviews (meta-analysis), evidence (systematic) maps, scoping reviews and other similar methodological approaches to summarising knowledge.</p>
+</section>
+<section id="scope-and-limitations" class="level3" data-number="1.0.3">
+<h3 data-number="1.0.3" class="anchored" data-anchor-id="scope-and-limitations"><span class="header-section-number">1.0.3</span> Scope and limitations</h3>
+<p>The guide is focused on tools (and methods) that use artificial intelligence related to searching for and screening literature. The guide is limited to tools that are or can be used in evidence synthesis across the different stages of a review (primarily search, screening, data extraction and risk of bias assessment).</p>
+<p>Medicine and health are far advanced in terms of standardised reporting when compared to ecology. Many tools are designed for medical or health applications (that is where the money is!). We will mention tools in this field but will highlight where we see potential issues or risks for studies typical of ecology.</p>
+<div class="callout callout-style-simple callout-note">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p><em>Definitions</em></p>
+<p>This box provides definitions of key terms used throughout the guide, with a focus on their relevance to evidence synthesis in environmental and ecological research.</p>
+<p><em>Artificial Intelligence (AI)</em></p>
+<p>AI refers to the development of computer systems capable of performing tasks that normally require human intelligence. In the context of evidence synthesis, AI is commonly used to support processes such as literature searching, screening, and data extraction, often by learning patterns in data and predicting human decisions.</p>
+<p><em>Machine Learning (ML)</em></p>
+<p>A subset of AI in which algorithms learn from data to make predictions or decisions without being explicitly programmed. In evidence synthesis, ML is often used to predict whether a study should be included based on past inclusion decisions.</p>
+<p><em>Large Language Models (LLMs)</em></p>
+<p>LLMs are a type of AI trained on massive amounts of text data to understand and generate human-like language. Tools powered by LLMs (e.g., ChatGPT, Elicit, Scite Assistant) can assist in tasks such as summarising papers, suggesting search terms, or even screening abstracts. They are not infallible and should be used with caution, especially for tasks requiring precision and transparency.</p>
+<p><em>Automation Tools</em></p>
+<p>Automation tools are software applications that streamline or perform parts of the evidence synthesis process, sometimes with the support of AI or rule-based algorithms. Examples include machine learning tools for screening (e.g., ASReview), tools for deduplication (e.g., revtools), and citation managers with AI-enhanced features (e.g., Rayyan).</p>
+<p><em>Systematic Reviews</em></p>
+<p>Systematic reviews are rigorous, transparent, and reproducible syntheses of research evidence, guided by a predefined protocol. They aim to minimise bias by using systematic methods for literature searching, screening, data extraction, and analysis. Systematic reviews are often used to inform policy, management, and research priorities. Systematic reviews may contain a meta-analysis - the statistical method of combining effects from different studies.</p>
+<p><em>Evidence Maps (Systematic Maps)</em></p>
+<p>Systematic maps aim to provide an overview of the available evidence on a broad topic. Unlike systematic reviews, they do not usually attempt to answer a narrow causal question but instead catalogue, categorise, and describe studies. They are particularly useful for identifying knowledge gaps and clusters.</p>
+<p><em>Scoping Reviews</em></p>
+<p>Scoping reviews explore the breadth and nature of evidence on a topic, usually to clarify concepts or identify research questions. They are less structured than systematic reviews or maps but still follow transparent and replicable methods.</p>
+<p><em>Human-in-the-Loop</em></p>
+<p>A model of AI use where human experts remain involved in key decision points—training models, checking results, and making final decisions. This approach aims to balance efficiency gains with quality control and ethical oversight.</p>
+<p><em>RAISE (Reporting Guideline for AI in Systematic Evidence Synthesis)</em></p>
+<p>RAISE is a proposed reporting standard for how AI tools are used in systematic reviews and evidence syntheses. It emphasises transparency, reproducibility, and ethical considerations in AI-assisted workflows.</p>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="background-and-rationale" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Background and Rationale</h1>
+<p>Artificial Intelligence (AI) is rapidly transforming how researchers interact with scientific literature, offering new possibilities for conducting evidence syntheses more efficiently and systematically. In particular, AI and machine learning tools can assist with labour-intensive tasks such as literature searching, title and abstract screening, and even data extraction. This is especially relevant for environmental and ecological fields, where interdisciplinary topics and large volumes of grey literature often create substantial practical challenges for review teams.</p>
+<p>The use of AI in evidence synthesis is motivated by several key drivers:</p>
+<ul>
+<li><p><strong>Efficiency</strong>: Systematic reviews and maps can be time- and resource-intensive. AI can reduce time spent on repetitive tasks such as screening or identifying relevant literature, freeing researchers to focus on interpretation and synthesis.</p></li>
+<li><p><strong>Scalability</strong>: As the volume of published research continues to grow exponentially, AI tools can help researchers manage large evidence bases more effectively.</p></li>
+<li><p><strong>Consistency and Transparency</strong>: When used appropriately, automation can reduce human error and increase the reproducibility of decisions during screening and search.</p></li>
+</ul>
+<p>However, the integration of AI tools into evidence synthesis also raises important concerns:</p>
+<ul>
+<li><p><strong>Bias and Opaqueness</strong>: Many AI tools—particularly those based on large language models (LLMs)—function as “black boxes,” making it difficult to understand how decisions are made. This can undermine the transparency and reproducibility that are cornerstones of systematic approaches.</p></li>
+<li><p><strong>Over-reliance on Automation</strong>: When human judgement is removed from key decisions, there is a risk of missing relevant studies or introducing subtle biases—particularly problematic in fields like conservation and ecology, where relevant evidence may be highly heterogeneous.</p></li>
+<li><p><strong>Ethical and Practical Risks</strong>: Emerging concerns around data privacy, intellectual property, and the environmental footprint of large-scale AI systems add further complexity to the adoption of these technologies.</p></li>
+</ul>
+<p>In response to these opportunities and challenges, several guidance documents have recently emerged. The <strong>RAISE guidance</strong> (Reporting Guideline for AI in Systematic Evidence Synthesis) provides a framework for responsible, transparent use of AI across review stages (RAISE Working Group, 2023).</p>
+<p>This guide aims to help researchers at NINA navigate this evolving landscape by introducing key concepts, highlighting tools and use cases, and offering practical advice on how to integrate AI responsibly into literature searches and screening processes for systematic reviews and maps.</p>
+</section>
+<section id="when-and-why-to-use-ai-in-reviews" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> When and Why to Use AI in Reviews</h1>
+<p>Artificial Intelligence (AI) and automation can improve the speed, consistency, and scalability of evidence syntheses—but only when applied thoughtfully. This section outlines where AI can provide the most benefit in the review workflow, and offers guidance on balancing automation with human oversight to maintain transparency and methodological rigour.</p>
+<section id="stages-of-evidence-synthesis-where-ai-can-help" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="stages-of-evidence-synthesis-where-ai-can-help"><span class="header-section-number">3.1</span> Stages of Evidence Synthesis Where AI Can Help</h2>
+<p>AI can support multiple stages of the review process, from initial scoping to final data extraction. The most common and effective applications include:</p>
+<section id="scoping-and-search-planning" class="level3" data-number="3.1.1">
+<h3 data-number="3.1.1" class="anchored" data-anchor-id="scoping-and-search-planning"><span class="header-section-number">3.1.1</span> Scoping and Search Planning</h3>
+<p>AI-powered tools can help identify relevant concepts, terms, and relationships during the early planning stages. Semantic search tools and large language models (LLMs) can suggest keywords, synonyms, and research questions, which may help refine the scope of a review or map. These tools are especially helpful for exploring unfamiliar fields or interdisciplinary topics.</p>
+</section>
+<section id="literature-searching" class="level3" data-number="3.1.2">
+<h3 data-number="3.1.2" class="anchored" data-anchor-id="literature-searching"><span class="header-section-number">3.1.2</span> Literature Searching</h3>
+<p>AI tools can complement traditional database searches by enabling semantic or concept-based queries rather than relying solely on Boolean logic. While such tools should not replace systematic searches in structured databases, they can help surface relevant studies that might otherwise be missed and support horizon scanning or evidence surveillance.</p>
+</section>
+<section id="deduplication" class="level3" data-number="3.1.3">
+<h3 data-number="3.1.3" class="anchored" data-anchor-id="deduplication"><span class="header-section-number">3.1.3</span> Deduplication</h3>
+<p>AI-enhanced citation management tools can support more accurate and efficient deduplication across databases. Some platforms use fuzzy matching or machine learning to identify duplicate records that traditional exact-match methods might miss, especially when metadata is inconsistent.</p>
+</section>
+<section id="title-and-abstract-screening" class="level3" data-number="3.1.4">
+<h3 data-number="3.1.4" class="anchored" data-anchor-id="title-and-abstract-screening"><span class="header-section-number">3.1.4</span> Title and Abstract Screening</h3>
+<p>Machine learning models can be trained to prioritise or predict inclusion of studies based on previous screening decisions. Tools such as predictive ranking and active learning interfaces allow reviewers to focus on the most likely relevant studies first, which can significantly reduce workload while maintaining recall. This is one of the most mature and widely accepted uses of AI in evidence synthesis.</p>
+</section>
+<section id="full-text-retrieval-and-screening" class="level3" data-number="3.1.5">
+<h3 data-number="3.1.5" class="anchored" data-anchor-id="full-text-retrieval-and-screening"><span class="header-section-number">3.1.5</span> Full-Text Retrieval and Screening</h3>
+<p>AI can assist in retrieving full-text PDFs and, in some cases, extract key content for screening. Although this stage is more challenging due to document complexity, some tools can highlight relevant sections or predict inclusion likelihood based on full-text analysis. Human review remains essential, but AI can help flag likely inclusions or exclusions.</p>
+<p>This aspect is under-developed for ecological studies due to the complexity and lack of standardisation in publishing.</p>
+</section>
+<section id="data-extraction" class="level3" data-number="3.1.6">
+<h3 data-number="3.1.6" class="anchored" data-anchor-id="data-extraction"><span class="header-section-number">3.1.6</span> Data Extraction</h3>
+<p>Some tools use AI or rule-based approaches to assist with data extraction (e.g., identifying effect sizes or study characteristics). However, these are less mature and typically require substantial human validation. For most ecological reviews, manual extraction is still the norm, although automation may be useful for structured data such as publication metadata.</p>
+</section>
+</section>
+<section id="decision-making-when-to-automate-vs.-when-to-involve-human-judgment" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="decision-making-when-to-automate-vs.-when-to-involve-human-judgment"><span class="header-section-number">3.2</span> Decision-Making: When to Automate vs.&nbsp;When to Involve Human Judgment</h2>
+<p>Not all review stages benefit equally from automation. Review teams should carefully consider:</p>
+<ul>
+<li><strong>Risk of Bias</strong>: Stages with a high risk of introducing bias (e.g.&nbsp;study inclusion decisions) should retain a strong human-in-the-loop component.</li>
+<li><strong>Criticality of the Task</strong>: For tasks that influence the direction of the review (e.g.&nbsp;interpreting results), human oversight is essential.</li>
+<li><strong>Maturity of the Tool</strong>: Some tools (e.g., for screening) are well-validated and widely used; others are still experimental.</li>
+<li><strong>Transparency Requirements</strong>: Where decisions need to be defensible (e.g.&nbsp;in policy-informing reviews), full transparency is essential.</li>
+</ul>
+<p>A good rule of thumb is to <strong>automate tasks that are repetitive and low-risk</strong>, while ensuring human oversight for any decisions that are interpretive, uncertain, or central to the review’s credibility.</p>
+</section>
+<section id="transparency-and-reproducibility-considerations" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="transparency-and-reproducibility-considerations"><span class="header-section-number">3.3</span> Transparency and Reproducibility Considerations</h2>
+<p>Using AI in reviews requires <strong>explicit documentation and transparency</strong>. It is critical to:</p>
+<ul>
+<li>Record what tools were used, for what purpose, and how they were configured.</li>
+<li>Describe how AI-assisted decisions were validated or checked by reviewers.</li>
+<li>Make clear where automation began and ended—particularly in mixed workflows.</li>
+<li>Ensure that any non-deterministic tools (e.g.&nbsp;LLMs) are used in ways that can be replicated or justified.</li>
+</ul>
+<p>Where possible, logs, training data, or model settings should be saved as supplementary materials. Teams should also be honest about the limitations of the tools they use, particularly if the methods may affect study inclusion or interpretation.</p>
+<p>Ultimately, AI should support—not replace—transparent, reproducible, and rigorous evidence synthesis.</p>
+</section>
+</section>
+<section id="tools-and-platforms" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Tools and Platforms</h1>
+<p>There is a growing ecosystem of AI and automation tools available to support evidence synthesis. These range from specialist systematic review platforms to general-purpose AI assistants and citation managers with machine learning features.</p>
+<p>This section provides an overview of widely used tools, grouped by function. Tools mentioned here are either commonly used in environmental evidence syntheses or demonstrate strong potential for responsible use in this context. Always assess whether a tool aligns with your review’s scope, transparency requirements, and team expertise.</p>
+<section id="ai-tools-for-literature-searching" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="ai-tools-for-literature-searching"><span class="header-section-number">4.1</span> AI Tools for Literature Searching</h2>
+<p>These tools assist with developing or running search strategies, usually by identifying relevant concepts, keywords, or papers based on semantic similarity rather than exact matches.</p>
+<section id="elicit" class="level3" data-number="4.1.1">
+<h3 data-number="4.1.1" class="anchored" data-anchor-id="elicit"><span class="header-section-number">4.1.1</span> Elicit</h3>
+<ul>
+<li><strong>Description</strong>: A research assistant built on large language models (LLMs) that helps identify related papers, extract summaries, and suggest keywords.</li>
+<li><strong>Use cases</strong>: Exploring unfamiliar topics, finding related work quickly, brainstorming inclusion criteria.</li>
+<li><strong>Cautions</strong>: Results are not reproducible (LLM output may vary), and the tool doesn’t replace formal database searches.</li>
+</ul>
+</section>
+<section id="iris.ai" class="level3" data-number="4.1.2">
+<h3 data-number="4.1.2" class="anchored" data-anchor-id="iris.ai"><span class="header-section-number">4.1.2</span> Iris.ai</h3>
+<ul>
+<li><strong>Description</strong>: A semantic search tool for mapping out related research based on concepts, not just keywords.</li>
+<li><strong>Use cases</strong>: Early scoping, identifying clusters of related research, visualizing topic areas.</li>
+<li><strong>Cautions</strong>: Best used in combination with structured database searches; coverage may be limited depending on the data source.</li>
+</ul>
+</section>
+<section id="scopus-ai-dimensions-ai-assistant" class="level3" data-number="4.1.3">
+<h3 data-number="4.1.3" class="anchored" data-anchor-id="scopus-ai-dimensions-ai-assistant"><span class="header-section-number">4.1.3</span> Scopus AI / Dimensions AI Assistant</h3>
+<ul>
+<li><strong>Description</strong>: AI-enhanced interfaces for structured databases that use natural language queries and suggest refinements.</li>
+<li><strong>Use cases</strong>: Iteratively refining a search strategy or identifying additional synonyms.</li>
+<li><strong>Cautions</strong>: May lack the transparency of traditional Boolean search queries; not suitable for final reproducible search strings.</li>
+</ul>
+</section>
+</section>
+<section id="ai-tools-for-screening" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="ai-tools-for-screening"><span class="header-section-number">4.2</span> AI Tools for Screening</h2>
+<p>Screening is where AI currently offers the most reliable and validated benefits, especially for large reviews.</p>
+<section id="asreview" class="level3" data-number="4.2.1">
+<h3 data-number="4.2.1" class="anchored" data-anchor-id="asreview"><span class="header-section-number">4.2.1</span> ASReview</h3>
+<ul>
+<li><strong>Description</strong>: A free, open-source tool that uses active learning to prioritise references for title/abstract screening based on user feedback.</li>
+<li><strong>Use cases</strong>: Rapid screening of large datasets, prioritising likely-relevant studies early in the process.</li>
+<li><strong>Key features</strong>: Transparent interface, exportable logs, human-in-the-loop model training.</li>
+<li><strong>Cautions</strong>: Requires at least a few initial inclusion/exclusion decisions to train; still needs human validation throughout.</li>
+</ul>
+</section>
+<section id="rayyan" class="level3" data-number="4.2.2">
+<h3 data-number="4.2.2" class="anchored" data-anchor-id="rayyan"><span class="header-section-number">4.2.2</span> Rayyan</h3>
+<ul>
+<li><strong>Description</strong>: A web-based screening platform with optional machine learning support.</li>
+<li><strong>Use cases</strong>: Collaborative screening; quick initial filtering of abstracts.</li>
+<li><strong>Key features</strong>: Tagging, blinding, ML-based inclusion suggestions.</li>
+<li><strong>Cautions</strong>: ML suggestions are not transparent; use with reviewer discretion and always validate outputs.</li>
+</ul>
+</section>
+<section id="colandr" class="level3" data-number="4.2.3">
+<h3 data-number="4.2.3" class="anchored" data-anchor-id="colandr"><span class="header-section-number">4.2.3</span> Colandr</h3>
+<ul>
+<li><strong>Description</strong>: A free platform combining planning, screening, and data extraction with AI support.</li>
+<li><strong>Use cases</strong>: Smaller or exploratory reviews; all-in-one environment.</li>
+<li><strong>Cautions</strong>: Less frequently maintained and may have usability issues; outputs should be checked for reproducibility.</li>
+</ul>
+</section>
+<section id="robotanalyst-abstrackr" class="level3" data-number="4.2.4">
+<h3 data-number="4.2.4" class="anchored" data-anchor-id="robotanalyst-abstrackr"><span class="header-section-number">4.2.4</span> RobotAnalyst / Abstrackr</h3>
+<ul>
+<li><strong>Description</strong>: Machine learning–based screening tools developed primarily for biomedical reviews.</li>
+<li><strong>Use cases</strong>: Supplementing manual screening where large datasets are involved.</li>
+<li><strong>Cautions</strong>: Interfaces can be outdated; setup may require data formatting effort.</li>
+</ul>
+</section>
+</section>
+<section id="supporting-tools-and-utilities" class="level2" data-number="4.3">
+<h2 data-number="4.3" class="anchored" data-anchor-id="supporting-tools-and-utilities"><span class="header-section-number">4.3</span> Supporting Tools and Utilities</h2>
+<section id="revtools-r-package" class="level3" data-number="4.3.1">
+<h3 data-number="4.3.1" class="anchored" data-anchor-id="revtools-r-package"><span class="header-section-number">4.3.1</span> revtools (R package)</h3>
+<ul>
+<li><strong>Description</strong>: A suite of tools for reference management and screening in R, including deduplication, visual topic modelling, and similarity analysis.</li>
+<li><strong>Use cases</strong>: Custom screening workflows, deduplication, prioritizing by topic clusters.</li>
+<li><strong>Cautions</strong>: Requires familiarity with R; not fully automated.</li>
+</ul>
+</section>
+<section id="sra-tools-systematic-review-accelerator" class="level3" data-number="4.3.2">
+<h3 data-number="4.3.2" class="anchored" data-anchor-id="sra-tools-systematic-review-accelerator"><span class="header-section-number">4.3.2</span> SRA tools (Systematic Review Accelerator)</h3>
+<ul>
+<li><strong>Description</strong>: A collection of browser-based tools for screening, search translation, and deduplication.</li>
+<li><strong>Use cases</strong>: Translating Boolean searches between databases, checking for duplicates, managing records.</li>
+<li><strong>Cautions</strong>: Automation is mostly rule-based (not AI); not integrated with AI screening tools.</li>
+</ul>
+</section>
+</section>
+<section id="choosing-the-right-tool" class="level2" data-number="4.4">
+<h2 data-number="4.4" class="anchored" data-anchor-id="choosing-the-right-tool"><span class="header-section-number">4.4</span> Choosing the Right Tool</h2>
+<p>When selecting tools, consider:</p>
+<ul>
+<li><strong>Type of review</strong> (e.g.&nbsp;systematic map vs.&nbsp;rapid review)</li>
+<li><strong>Stage of synthesis</strong> (searching, screening, extraction)</li>
+<li><strong>Need for transparency</strong> (can decisions be documented?)</li>
+<li><strong>Team size and skills</strong> (technical comfort with AI tools or R)</li>
+<li><strong>Reproducibility requirements</strong> (can outputs be saved and shared?)</li>
+</ul>
+<p>The use of AI should be <strong>clearly documented</strong> in your protocol and final report. Wherever possible, export and archive training decisions, screening logs, and settings used.</p>
+</section>
+</section>
+<section id="ethical-and-practical-considerations" class="level1" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> Ethical and Practical Considerations</h1>
+<p>The use of AI and automation in evidence synthesis introduces new ethical, technical, and practical considerations. While these tools offer clear benefits—especially for managing large evidence bases—they also raise important questions around transparency, accountability, fairness, and environmental impact.</p>
+<p>This section outlines key considerations to keep in mind when integrating AI into review workflows.</p>
+<section id="human-in-the-loop-is-essential" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="human-in-the-loop-is-essential"><span class="header-section-number">5.1</span> Human-in-the-Loop Is Essential</h2>
+<p>AI should assist, not replace, expert judgement. While some tools can suggest which studies to prioritise or highlight key information, they should not make final inclusion, exclusion, or interpretation decisions without human oversight.</p>
+<p>Maintaining a <strong>human-in-the-loop</strong> model helps:</p>
+<ul>
+<li><p>Catch mistakes or biases in AI predictions</p></li>
+<li><p>Ensure nuanced decisions (e.g.&nbsp;assessing relevance or context)</p></li>
+<li><p>Preserve the methodological integrity of the review</p></li>
+</ul>
+<p>Teams should clearly define which steps are automated, and which require human review, and communicate this in both protocols and final outputs.</p>
+</section>
+<section id="risk-of-bias-and-exclusion" class="level2" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="risk-of-bias-and-exclusion"><span class="header-section-number">5.2</span> Risk of Bias and Exclusion</h2>
+<p>AI models learn from data, and if that data contains bias, the models may reinforce it. This is particularly important in:</p>
+<ul>
+<li><p><strong>Screening decisions</strong>: AI models trained on early decisions may exclude relevant but atypical studies.</p></li>
+<li><p><strong>Literature searches</strong>: Semantic search or LLM tools may prioritize well-published, Western, or English-language research, marginalizing under-represented voices or grey literature. The search results may be limited by the coverage of the database on which the tool was developed.</p></li>
+<li><p><strong>Data extraction</strong>: If models are trained on specific study types (e.g.&nbsp;medical trials), they may misinterpret ecological studies.</p></li>
+</ul>
+<p>To mitigate these risks:</p>
+<ul>
+<li><p>Monitor AI outputs for systematic exclusions</p></li>
+<li><p>Use diverse and representative training examples when possible</p></li>
+<li><p>Continue dual or consensus-based human checks for key decisions</p></li>
+</ul>
+</section>
+<section id="transparency-and-documentation" class="level2" data-number="5.3">
+<h2 data-number="5.3" class="anchored" data-anchor-id="transparency-and-documentation"><span class="header-section-number">5.3</span> Transparency and Documentation</h2>
+<p>Transparency is critical when using AI in evidence synthesis. Reviewers and stakeholders need to understand:</p>
+<ul>
+<li><p>What tools were used and why</p></li>
+<li><p>How models were trained or tuned</p></li>
+<li><p>How outputs were validated or interpreted</p></li>
+</ul>
+<p>You should document:</p>
+<ul>
+<li><p>The name and version of each AI tool used</p></li>
+<li><p>Which review stages were assisted or automated</p></li>
+<li><p>How AI decisions were reviewed or validated</p></li>
+<li><p>Any known limitations of the tools</p></li>
+</ul>
+<p>This information should be included in both the protocol and the methods section of the final report. Where possible, export logs, training sets, or model parameters for future reference or replication.</p>
+</section>
+<section id="data-privacy-and-security" class="level2" data-number="5.4">
+<h2 data-number="5.4" class="anchored" data-anchor-id="data-privacy-and-security"><span class="header-section-number">5.4</span> Data Privacy and Security</h2>
+<p>Some AI tools (especially cloud-based ones) require uploading bibliographic data or full texts. Before doing so, consider:</p>
+<ul>
+<li><p>Whether this data includes unpublished or proprietary content</p></li>
+<li><p>Whether the platform stores or uses the data to train models</p></li>
+<li><p>Institutional or project-specific data policies (e.g.&nbsp;GDPR compliance)</p></li>
+</ul>
+<p>Where sensitive or private data is involved, use locally run tools (e.g.&nbsp;ASReview offline) or ensure that cloud tools meet appropriate security standards.</p>
+</section>
+<section id="environmental-and-social-impacts-of-ai" class="level2" data-number="5.5">
+<h2 data-number="5.5" class="anchored" data-anchor-id="environmental-and-social-impacts-of-ai"><span class="header-section-number">5.5</span> Environmental and Social Impacts of AI</h2>
+<p>While often overlooked, AI tools—particularly large language models—have real environmental and social costs. These include:</p>
+<ul>
+<li><p>High energy use and carbon emissions during model training and operation</p></li>
+<li><p>Unequal access to computational resources, reinforcing global research inequalities</p></li>
+<li><p>Ethical concerns around how training data is collected and used</p></li>
+</ul>
+<p>Where possible, choose lightweight, open-source tools, and avoid overuse of general-purpose LLMs for tasks that could be achieved more efficiently with traditional methods.</p>
+</section>
+<section id="skills-and-capacity-building" class="level2" data-number="5.6">
+<h2 data-number="5.6" class="anchored" data-anchor-id="skills-and-capacity-building"><span class="header-section-number">5.6</span> Skills and Capacity Building</h2>
+<p>Adopting AI tools requires training and capacity building. Teams should:</p>
+<ul>
+<li><p>Make time to learn and test tools before using them in a live review</p></li>
+<li><p>Choose tools aligned with their technical comfort level</p></li>
+<li><p>Share lessons learned with colleagues to build institutional capacity</p></li>
+</ul>
+<p>Remember that no tool is “plug-and-play”—effective use requires judgement, trial-and-error, and clear team communication.</p>
+</section>
+<section id="equity-and-accessibility" class="level2" data-number="5.7">
+<h2 data-number="5.7" class="anchored" data-anchor-id="equity-and-accessibility"><span class="header-section-number">5.7</span> Equity and Accessibility</h2>
+<p>Ensure that the tools and methods you use do not disadvantage collaborators or stakeholders:</p>
+<ul>
+<li><p>Are tools free and open-source, or behind paywalls?</p></li>
+<li><p>Do they require high-speed internet or modern hardware?</p></li>
+<li><p>Are outputs understandable to non-technical audiences?</p></li>
+</ul>
+<p>Whenever possible, opt for inclusive, transparent tools that allow collaboration across geographic and institutional boundaries.</p>
+</section>
+</section>
+<section id="best-practices-and-recommendations" class="level1" data-number="6">
+<h1 data-number="6"><span class="header-section-number">6</span> Best Practices and Recommendations</h1>
+<ul>
+<li>Always validate AI outputs with expert input</li>
+<li>Start small: pilot with AI-assisted screening</li>
+<li>Document AI use and decisions clearly</li>
+<li>Keep up-to-date with tools and standards</li>
+</ul>
+</section>
+<section id="assessing-ai-models-in-literature-reviews" class="level1" data-number="7">
+<h1 data-number="7"><span class="header-section-number">7</span> Assessing AI Models in Literature Reviews</h1>
+<p>As AI tools become more common in evidence synthesis, researchers must understand how to assess their reliability, appropriateness, and impact. Whether using a machine learning tool for screening, a semantic search engine, or a large language model (LLM) to summarise findings, it is essential to evaluate how well these tools perform and what risks they may introduce.</p>
+<section id="why-assessment-matters" class="level2" data-number="7.1">
+<h2 data-number="7.1" class="anchored" data-anchor-id="why-assessment-matters"><span class="header-section-number">7.1</span> Why Assessment Matters</h2>
+<p>AI tools influence which studies are included, prioritised, or excluded. If these decisions are flawed or biased, they may distort the evidence base. Assessment helps ensure:</p>
+<ul>
+<li><p><strong>Transparency</strong>: Stakeholders can understand how tools influenced results.</p></li>
+<li><p><strong>Accountability</strong>: Review teams remain responsible for the decisions AI assists with.</p></li>
+<li><p><strong>Reproducibility</strong>: Others can evaluate or replicate your process.</p></li>
+<li><p><strong>Equity</strong>: AI does not systematically disadvantage certain types of evidence or sources.</p></li>
+</ul>
+</section>
+<section id="key-dimensions-of-assessment" class="level2" data-number="7.2">
+<h2 data-number="7.2" class="anchored" data-anchor-id="key-dimensions-of-assessment"><span class="header-section-number">7.2</span> Key Dimensions of Assessment</h2>
+<p>The following dimensions can guide assessment of AI tools or models in the context of literature reviews:</p>
+<section id="relevance-and-fit-for-purpose" class="level3" data-number="7.2.1">
+<h3 data-number="7.2.1" class="anchored" data-anchor-id="relevance-and-fit-for-purpose"><span class="header-section-number">7.2.1</span> Relevance and Fit-for-Purpose</h3>
+<ul>
+<li>Is the tool designed for your task (e.g., screening, search, extraction)?</li>
+<li>Does it support the types of literature and disciplines in your review?</li>
+<li>Is the model trained on data relevant to environmental/ecological research?</li>
+</ul>
+</section>
+<section id="performance-and-accuracy" class="level3" data-number="7.2.2">
+<h3 data-number="7.2.2" class="anchored" data-anchor-id="performance-and-accuracy"><span class="header-section-number">7.2.2</span> Performance and Accuracy</h3>
+<p>Evaluating how well an AI tool performs compared to human decisions is essential, particularly for screening tasks. This helps ensure the tool doesn’t miss relevant studies or overwhelm reviewers with irrelevant ones.</p>
+<p>The most commonly used metrics to assess classification performance are:</p>
+<section id="sensitivity-recall" class="level4" data-number="7.2.2.1">
+<h4 data-number="7.2.2.1" class="anchored" data-anchor-id="sensitivity-recall"><span class="header-section-number">7.2.2.1</span> Sensitivity (Recall)</h4>
+<ul>
+<li><strong>Definition</strong>: The proportion of relevant studies correctly identified by the AI.</li>
+<li><strong>Why it matters</strong>: In reviews, missing relevant studies can introduce bias, so <strong>high sensitivity</strong> is usually more important than perfect precision.</li>
+<li><strong>Formula</strong>:<br>
+<code>Sensitivity = True Positives / (True Positives + False Negatives)</code></li>
+</ul>
+</section>
+<section id="specificity" class="level4" data-number="7.2.2.2">
+<h4 data-number="7.2.2.2" class="anchored" data-anchor-id="specificity"><span class="header-section-number">7.2.2.2</span> Specificity</h4>
+<ul>
+<li><strong>Definition</strong>: The proportion of irrelevant studies correctly excluded by the AI.</li>
+<li><strong>Why it matters</strong>: Helps assess whether the AI avoids burdening the reviewer with too many irrelevant studies.</li>
+<li><strong>Formula</strong>:<br>
+<code>Specificity = True Negatives / (True Negatives + False Positives)</code></li>
+</ul>
+</section>
+<section id="precision-positive-predictive-value" class="level4" data-number="7.2.2.3">
+<h4 data-number="7.2.2.3" class="anchored" data-anchor-id="precision-positive-predictive-value"><span class="header-section-number">7.2.2.3</span> Precision (Positive Predictive Value)</h4>
+<ul>
+<li><strong>Definition</strong>: The proportion of studies the AI marked as relevant that truly are relevant.</li>
+<li><strong>Why it matters</strong>: High precision reduces the time spent validating false positives.</li>
+<li><strong>Formula</strong>:<br>
+<code>Precision = True Positives / (True Positives + False Positives)</code></li>
+</ul>
+</section>
+<section id="accuracy" class="level4" data-number="7.2.2.4">
+<h4 data-number="7.2.2.4" class="anchored" data-anchor-id="accuracy"><span class="header-section-number">7.2.2.4</span> Accuracy</h4>
+<ul>
+<li><strong>Definition</strong>: The proportion of all decisions (relevant and irrelevant) that the AI got right.</li>
+<li><strong>Caution</strong>: Can be misleading in imbalanced datasets (e.g., if most studies are irrelevant).</li>
+<li><strong>Formula</strong>:<br>
+<code>Accuracy = (True Positives + True Negatives) / Total</code></li>
+</ul>
+</section>
+<section id="f1-score" class="level4" data-number="7.2.2.5">
+<h4 data-number="7.2.2.5" class="anchored" data-anchor-id="f1-score"><span class="header-section-number">7.2.2.5</span> F1 Score</h4>
+<ul>
+<li><strong>Definition</strong>: The harmonic mean of precision and recall.</li>
+<li><strong>Why it matters</strong>: A single score that balances sensitivity and precision, especially useful when the dataset is imbalanced.</li>
+<li><strong>Formula</strong>:<br>
+<code>F1 = 2 × (Precision × Recall) / (Precision + Recall)</code></li>
+</ul>
+<hr>
+</section>
+<section id="example-screening-ai-for-titleabstract-inclusion" class="level4" data-number="7.2.2.6">
+<h4 data-number="7.2.2.6" class="anchored" data-anchor-id="example-screening-ai-for-titleabstract-inclusion"><span class="header-section-number">7.2.2.6</span> Example: Screening AI for Title/Abstract Inclusion</h4>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th></th>
+<th>Human: Include</th>
+<th>Human: Exclude</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>AI: Include</strong></td>
+<td>45 (TP)</td>
+<td>15 (FP)</td>
+</tr>
+<tr class="even">
+<td><strong>AI: Exclude</strong></td>
+<td>5 (FN)</td>
+<td>135 (TN)</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>Sensitivity</strong> = 45 / (45 + 5) = 0.90<br>
+</li>
+<li><strong>Specificity</strong> = 135 / (135 + 15) = 0.90<br>
+</li>
+<li><strong>Precision</strong> = 45 / (45 + 15) = 0.75<br>
+</li>
+<li><strong>F1 Score</strong> = 2 × (0.75 × 0.90) / (0.75 + 0.90) ≈ 0.82</li>
+</ul>
+<p>This tells us the model is good at identifying relevant studies (high sensitivity), but some irrelevant studies still slip through (lower precision).</p>
+<hr>
+</section>
+</section>
+<section id="practical-tips" class="level3" data-number="7.2.3">
+<h3 data-number="7.2.3" class="anchored" data-anchor-id="practical-tips"><span class="header-section-number">7.2.3</span> Practical Tips</h3>
+<ul>
+<li>For <strong>systematic reviews</strong>, prioritise <strong>sensitivity (recall)</strong> to avoid missing relevant evidence.</li>
+<li>Use <strong>precision and F1</strong> to evaluate trade-offs when working under time constraints or in rapid reviews.</li>
+<li>Create a <strong>confusion matrix</strong> (as above) using a subset of records that have been screened manually.</li>
+<li>Avoid relying solely on accuracy unless your dataset is well-balanced.</li>
+</ul>
+<p>Some tools will calculate these metrics automatically as you screen, while others may require manual calculation using a validation dataset.</p>
+<hr>
+</section>
+<section id="transparency-and-explainability" class="level3" data-number="7.2.4">
+<h3 data-number="7.2.4" class="anchored" data-anchor-id="transparency-and-explainability"><span class="header-section-number">7.2.4</span> <strong>Transparency and Explainability</strong></h3>
+<ul>
+<li>Is the algorithm or model transparent (e.g., open source)?</li>
+<li>Can you understand why the AI made specific decisions?</li>
+<li>Are logs or training data accessible?</li>
+</ul>
+</section>
+<section id="bias-and-fairness" class="level3" data-number="7.2.5">
+<h3 data-number="7.2.5" class="anchored" data-anchor-id="bias-and-fairness"><span class="header-section-number">7.2.5</span> <strong>Bias and Fairness</strong></h3>
+<ul>
+<li>Does the tool show systematic bias (e.g., against grey literature or non-English studies)?</li>
+<li>Was the training data diverse?</li>
+<li>Have you reviewed outputs for under-representation of certain sources?</li>
+</ul>
+</section>
+<section id="robustness-and-reproducibility" class="level3" data-number="7.2.6">
+<h3 data-number="7.2.6" class="anchored" data-anchor-id="robustness-and-reproducibility"><span class="header-section-number">7.2.6</span> <strong>Robustness and Reproducibility</strong></h3>
+<ul>
+<li>Are outputs consistent across repeated runs?</li>
+<li>Do results change based on small differences in input data?</li>
+<li>Can other teams reproduce your results using the same AI settings?</li>
+</ul>
+<p>LLMs (like ChatGPT) are <strong>non-deterministic</strong> — meaning outputs vary — which reduces reproducibility unless tightly controlled.</p>
+</section>
+<section id="human-oversight-and-validation" class="level3" data-number="7.2.7">
+<h3 data-number="7.2.7" class="anchored" data-anchor-id="human-oversight-and-validation"><span class="header-section-number">7.2.7</span> <strong>Human Oversight and Validation</strong></h3>
+<ul>
+<li>How much human validation is built into the workflow?</li>
+<li>Are critical decisions (e.g., inclusion/exclusion) checked by a second reviewer?</li>
+<li>Is there documentation of reviewer-AI interaction?</li>
+</ul>
+</section>
+<section id="documentation-and-reporting" class="level3" data-number="7.2.8">
+<h3 data-number="7.2.8" class="anchored" data-anchor-id="documentation-and-reporting"><span class="header-section-number">7.2.8</span> <strong>Documentation and Reporting</strong></h3>
+<ul>
+<li>Is tool usage reported transparently (tool name, version, parameters)?</li>
+<li>Are AI-assisted stages clearly marked in the methods?</li>
+<li>Have limitations of the tool been acknowledged?</li>
+</ul>
+</section>
+</section>
+<section id="practical-steps-to-assess-an-ai-tool" class="level2" data-number="7.3">
+<h2 data-number="7.3" class="anchored" data-anchor-id="practical-steps-to-assess-an-ai-tool"><span class="header-section-number">7.3</span> Practical Steps to Assess an AI Tool</h2>
+<ol type="1">
+<li><strong>Pilot the tool</strong> on a small subset of your dataset</li>
+<li><strong>Compare AI results to human decisions</strong></li>
+<li><strong>Log and save all settings</strong> (e.g., screening thresholds, model choices)</li>
+<li><strong>Validate a sample</strong> of AI outputs independently</li>
+<li><strong>Document everything</strong> clearly in your review protocol and report</li>
+</ol>
+</section>
+<section id="when-not-to-use-ai" class="level2" data-number="7.4">
+<h2 data-number="7.4" class="anchored" data-anchor-id="when-not-to-use-ai"><span class="header-section-number">7.4</span> When Not to Use AI</h2>
+<p>You should <strong>avoid using AI models</strong> in your review when</p>
+<ul>
+<li><p>The tool’s output cannot be explained or checked</p></li>
+<li><p>You cannot validate the tool’s performance</p></li>
+<li><p>The tool was trained on irrelevant or biased data</p></li>
+<li><p>The review has high policy or legal sensitivity requiring maximal transparency</p></li>
+</ul>
+</section>
+</section>
+<section id="how-to-report-ai-use-in-your-review" class="level1" data-number="8">
+<h1 data-number="8"><span class="header-section-number">8</span> How to Report AI Use in Your Review</h1>
+<p>Transparent reporting of AI use is essential for reproducibility, trust, and appropriate interpretation of results. AI can be used at multiple review stages—searching, screening, data extraction, synthesis—but each use should be clearly documented.</p>
+<section id="suggested-reporting-items" class="level2" data-number="8.1">
+<h2 data-number="8.1" class="anchored" data-anchor-id="suggested-reporting-items"><span class="header-section-number">8.1</span> Suggested Reporting Items</h2>
+<p>When reporting AI use, specify:</p>
+<ol type="1">
+<li><strong>Purpose and Review Stage</strong>
+<ul>
+<li>Stage(s) where AI was applied (e.g., search strategy optimisation, title/abstract screening, data extraction, meta-analysis assistance).<br>
+</li>
+<li>Whether AI use was exploratory, supplementary, or primary.</li>
+</ul></li>
+<li><strong>Tool / Model Details</strong>
+<ul>
+<li>Tool name, version, provider, and date accessed.<br>
+</li>
+<li>Model type (e.g., large language model, machine learning classifier, vector search tool).<br>
+</li>
+<li>Model version and training data (if known).</li>
+</ul></li>
+<li><strong>Configuration and Parameters</strong>
+<ul>
+<li>Custom prompts, scripts, or workflows used.<br>
+</li>
+<li>Hyperparameters or thresholds (e.g., screening probability threshold = 0.75).<br>
+</li>
+<li>Any preprocessing of input data.</li>
+</ul></li>
+<li><strong>Human Oversight and Validation</strong>
+<ul>
+<li>Level of human review applied (e.g., 100% dual screening of AI-suggested inclusions).<br>
+</li>
+<li>QA/QC measures and error checking.<br>
+</li>
+<li>Measures to address potential AI bias or errors.</li>
+</ul></li>
+<li><strong>Outputs</strong>
+<ul>
+<li>How AI outputs were integrated into the review.<br>
+</li>
+<li>Whether outputs were directly used or informed further manual steps.</li>
+</ul></li>
+<li><strong>Transparency and Reproducibility Materials</strong>
+<ul>
+<li>AI interaction logs, exported decision files, model training datasets (if permissible).<br>
+</li>
+<li>Code and scripts deposited in a public repository.<br>
+</li>
+<li>Data availability statements.</li>
+</ul></li>
+</ol>
+<hr>
+</section>
+<section id="examples-of-good-documentation" class="level2" data-number="8.2">
+<h2 data-number="8.2" class="anchored" data-anchor-id="examples-of-good-documentation"><span class="header-section-number">8.2</span> Examples of Good Documentation</h2>
+<ul>
+<li><p><strong>Screening</strong>:<br>
+<em>We used ASReview v1.4.3 (van de Schoot et al., 2021) for title and abstract screening. The model was trained on an initial set of 200 randomly selected records, screened manually by two reviewers. The inclusion threshold was set at 0.85 probability. All AI-included records were checked by a human reviewer.</em></p></li>
+<li><p><strong>Data Extraction</strong>:<br>
+<em>We used OpenAI GPT-4 (March 2025) via the R plugin <code>chatgpttools</code> to extract outcome data from PDF tables. Outputs were verified by a second reviewer against source documents.</em></p></li>
+<li><p><strong>Search</strong>:<br>
+<em>We used Scite AI to identify additional grey literature references, validated against manual citation chasing results.</em></p></li>
+</ul>
+<hr>
+</section>
+<section id="supplementary-materials" class="level2" data-number="8.3">
+<h2 data-number="8.3" class="anchored" data-anchor-id="supplementary-materials"><span class="header-section-number">8.3</span> Supplementary Materials</h2>
+<ul>
+<li>Exported AI logs (conversation transcripts, model outputs).<br>
+</li>
+<li>Model training data (annotated reference sets, with licensing information).<br>
+</li>
+<li>Configuration files (parameter settings, prompt templates).<br>
+</li>
+<li>Performance metrics (precision, recall, F1 score for AI-assisted stages).</li>
+</ul>
+<p>Deposit these in an <strong>open repository</strong> (e.g., OSF, Zenodo, institutional archive) to ensure transparency.</p>
+<hr>
+</section>
+</section>
+<section id="resources-and-further-reading" class="level1" data-number="9">
+<h1 data-number="9"><span class="header-section-number">9</span> Resources and Further Reading</h1>
+<section id="tool-websites" class="level3" data-number="9.0.1">
+<h3 data-number="9.0.1" class="anchored" data-anchor-id="tool-websites"><span class="header-section-number">9.0.1</span> Tool Websites</h3>
+<ul>
+<li><strong>ASReview</strong> – <a href="https://asreview.nl" class="uri">https://asreview.nl</a><br>
+</li>
+<li><strong>Colandr</strong> – <a href="https://www.colandrapp.com" class="uri">https://www.colandrapp.com</a><br>
+</li>
+<li><strong>Rayyan</strong> – <a href="https://www.rayyan.ai" class="uri">https://www.rayyan.ai</a></li>
+</ul>
+</section>
+<section id="guidance-documents" class="level3" data-number="9.0.2">
+<h3 data-number="9.0.2" class="anchored" data-anchor-id="guidance-documents"><span class="header-section-number">9.0.2</span> Guidance Documents</h3>
+<ul>
+<li><strong>RAISE</strong> – <a href="https://osf.io/fwaud/" class="uri">https://osf.io/fwaud/</a><br>
+</li>
+<li><strong>Cochrane Methods AI</strong> – <a href="https://methods.cochrane.org/ai/" class="uri">https://methods.cochrane.org/ai/</a> (tutorials and other resources coming soon)</li>
+</ul>
+</section>
+<section id="key-publications-and-reviews" class="level3" data-number="9.0.3">
+<h3 data-number="9.0.3" class="anchored" data-anchor-id="key-publications-and-reviews"><span class="header-section-number">9.0.3</span> Key Publications and Reviews</h3>
+<ul>
+<li>van de Schoot, R., de Bruin, J., Schram, R. et al.&nbsp;<em>An open source machine learning framework for efficient and transparent systematic reviews.</em> Nat Mach Intell 3, 125–133 (2021). <a href="https://doi.org/10.1038/s42256-020-00287-7" class="uri">https://doi.org/10.1038/s42256-020-00287-7</a></li>
+<li>Marshall, I.J., Wallace, B.C. <em>Toward systematic review automation: a practical guide to using machine learning tools in research synthesis.</em> Syst Rev 8, 163 (2019). <a href="https://doi.org/10.1186/s13643-019-1074-9" class="uri">https://doi.org/10.1186/s13643-019-1074-9</a></li>
+</ul>
+</section>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

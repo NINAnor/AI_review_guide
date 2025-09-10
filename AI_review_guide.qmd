@@ -527,19 +527,78 @@ You should **avoid using AI models** in your review when
 
 # How to Report AI Use in Your Review
 
--   Suggested reporting items (aligned with ROSES, PRISMA and RAISE)
--   Examples of good documentation
--   Supplementary materials (e.g., exported AI logs or model training data)
+Transparent reporting of AI use is essential for reproducibility, trust, and appropriate interpretation of results. AI can be used at multiple review stages—searching, screening, data extraction, synthesis—but each use should be clearly documented.
+
+## Suggested Reporting Items
+
+When reporting AI use, specify:
+
+1. **Purpose and Review Stage**  
+   - Stage(s) where AI was applied (e.g., search strategy optimisation, title/abstract screening, data extraction, meta-analysis assistance).  
+   - Whether AI use was exploratory, supplementary, or primary.
+
+2. **Tool / Model Details**  
+   - Tool name, version, provider, and date accessed.  
+   - Model type (e.g., large language model, machine learning classifier, vector search tool).  
+   - Model version and training data (if known).
+
+3. **Configuration and Parameters**  
+   - Custom prompts, scripts, or workflows used.  
+   - Hyperparameters or thresholds (e.g., screening probability threshold = 0.75).  
+   - Any preprocessing of input data.
+
+4. **Human Oversight and Validation**  
+   - Level of human review applied (e.g., 100% dual screening of AI-suggested inclusions).  
+   - QA/QC measures and error checking.  
+   - Measures to address potential AI bias or errors.
+
+5. **Outputs**  
+   - How AI outputs were integrated into the review.  
+   - Whether outputs were directly used or informed further manual steps.  
+
+6. **Transparency and Reproducibility Materials**  
+   - AI interaction logs, exported decision files, model training datasets (if permissible).  
+   - Code and scripts deposited in a public repository.  
+   - Data availability statements.
+
+---
+
+## Examples of Good Documentation
+
+- **Screening**:  
+  *We used ASReview v1.4.3 (van de Schoot et al., 2021) for title and abstract screening. The model was trained on an initial set of 200 randomly selected records, screened manually by two reviewers. The inclusion threshold was set at 0.85 probability. All AI-included records were checked by a human reviewer.*  
+
+- **Data Extraction**:  
+  *We used OpenAI GPT-4 (March 2025) via the R plugin `chatgpttools` to extract outcome data from PDF tables. Outputs were verified by a second reviewer against source documents.*  
+
+- **Search**:  
+  *We used Scite AI to identify additional grey literature references, validated against manual citation chasing results.*
+
+---
+
+## Supplementary Materials
+
+- Exported AI logs (conversation transcripts, model outputs).  
+- Model training data (annotated reference sets, with licensing information).  
+- Configuration files (parameter settings, prompt templates).  
+- Performance metrics (precision, recall, F1 score for AI-assisted stages).  
+
+Deposit these in an **open repository** (e.g., OSF, Zenodo, institutional archive) to ensure transparency.
+
+---
 
 # Resources and Further Reading
 
--   Links to:
-    -   Tool websites
-    -   Tutorials and videos
-    -   Guidance documents (RAISE, PRISMA 2020, etc.)
--   Key publications and reviews
+### Tool Websites
+- **ASReview** – <https://asreview.nl>  
+- **Colandr** – <https://www.colandrapp.com>  
+- **Rayyan** – <https://www.rayyan.ai>
 
 
-## Example Protocol Language for AI Use
+### Guidance Documents
+- **RAISE** – <https://osf.io/fwaud/>  
+- **Cochrane Methods AI** – <https://methods.cochrane.org/ai/> (tutorials and other resources coming soon)
 
-## Template for Reporting AI Use
+### Key Publications and Reviews
+- van de Schoot, R., de Bruin, J., Schram, R. et al. *An open source machine learning framework for efficient and transparent systematic reviews.* Nat Mach Intell 3, 125–133 (2021). <https://doi.org/10.1038/s42256-020-00287-7>
+- Marshall, I.J., Wallace, B.C. *Toward systematic review automation: a practical guide to using machine learning tools in research synthesis.* Syst Rev 8, 163 (2019). <https://doi.org/10.1186/s13643-019-1074-9>
