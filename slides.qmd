@@ -108,9 +108,9 @@ Evidence syntheses need to be transparent and repeatable—not just for academic
 
 ## Help wanted!
 
-![](https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExMTgzd2p6aGY0eHdwNHo1Z3c3cXoxcW03am4zaWoyMjY3M29yNm1rbiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9dg/MjhGi9u6UJlU873Ml4/giphy.gif)
-
 We need better benchmarks: How long do review tasks really take in ecology? Without this, we cannot fairly assess claims that AI tools save time or increase efficiency.
+
+![](https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExMTgzd2p6aGY0eHdwNHo1Z3c3cXoxcW03am4zaWoyMjY3M29yNm1rbiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9dg/MjhGi9u6UJlU873Ml4/giphy.gif)
 
 ## 
 
