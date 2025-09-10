@@ -6,7 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Matt Grainger">
+<meta name="author" content="Matthew Grainger">
 <meta name="author" content="Frode Thomassen Singsaas">
 
 <title>Guide to Using AI in Literature Searching and Screening for Evidence Syntheses</title>
@@ -118,11 +118,17 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#practical-steps-to-assess-an-ai-tool" id="toc-practical-steps-to-assess-an-ai-tool" class="nav-link" data-scroll-target="#practical-steps-to-assess-an-ai-tool"><span class="header-section-number">7.3</span> Practical Steps to Assess an AI Tool</a></li>
   <li><a href="#when-not-to-use-ai" id="toc-when-not-to-use-ai" class="nav-link" data-scroll-target="#when-not-to-use-ai"><span class="header-section-number">7.4</span> When Not to Use AI</a></li>
   </ul></li>
-  <li><a href="#how-to-report-ai-use-in-your-review" id="toc-how-to-report-ai-use-in-your-review" class="nav-link" data-scroll-target="#how-to-report-ai-use-in-your-review"><span class="header-section-number">8</span> How to Report AI Use in Your Review</a></li>
+  <li><a href="#how-to-report-ai-use-in-your-review" id="toc-how-to-report-ai-use-in-your-review" class="nav-link" data-scroll-target="#how-to-report-ai-use-in-your-review"><span class="header-section-number">8</span> How to Report AI Use in Your Review</a>
+  <ul class="collapse">
+  <li><a href="#suggested-reporting-items" id="toc-suggested-reporting-items" class="nav-link" data-scroll-target="#suggested-reporting-items"><span class="header-section-number">8.1</span> Suggested Reporting Items</a></li>
+  <li><a href="#examples-of-good-documentation" id="toc-examples-of-good-documentation" class="nav-link" data-scroll-target="#examples-of-good-documentation"><span class="header-section-number">8.2</span> Examples of Good Documentation</a></li>
+  <li><a href="#supplementary-materials" id="toc-supplementary-materials" class="nav-link" data-scroll-target="#supplementary-materials"><span class="header-section-number">8.3</span> Supplementary Materials</a></li>
+  </ul></li>
   <li><a href="#resources-and-further-reading" id="toc-resources-and-further-reading" class="nav-link" data-scroll-target="#resources-and-further-reading"><span class="header-section-number">9</span> Resources and Further Reading</a>
   <ul class="collapse">
-  <li><a href="#example-protocol-language-for-ai-use" id="toc-example-protocol-language-for-ai-use" class="nav-link" data-scroll-target="#example-protocol-language-for-ai-use"><span class="header-section-number">9.1</span> Example Protocol Language for AI Use</a></li>
-  <li><a href="#template-for-reporting-ai-use" id="toc-template-for-reporting-ai-use" class="nav-link" data-scroll-target="#template-for-reporting-ai-use"><span class="header-section-number">9.2</span> Template for Reporting AI Use</a></li>
+  <li><a href="#tool-websites" id="toc-tool-websites" class="nav-link" data-scroll-target="#tool-websites"><span class="header-section-number">9.0.1</span> Tool Websites</a></li>
+  <li><a href="#guidance-documents" id="toc-guidance-documents" class="nav-link" data-scroll-target="#guidance-documents"><span class="header-section-number">9.0.2</span> Guidance Documents</a></li>
+  <li><a href="#key-publications-and-reviews" id="toc-key-publications-and-reviews" class="nav-link" data-scroll-target="#key-publications-and-reviews"><span class="header-section-number">9.0.3</span> Key Publications and Reviews</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -141,7 +147,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Authors</div>
     <div class="quarto-title-meta-contents">
-             <p>Matt Grainger </p>
+             <p>Matthew Grainger </p>
              <p>Frode Thomassen Singsaas </p>
           </div>
   </div>
@@ -669,28 +675,111 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="how-to-report-ai-use-in-your-review" class="level1" data-number="8">
 <h1 data-number="8"><span class="header-section-number">8</span> How to Report AI Use in Your Review</h1>
+<p>Transparent reporting of AI use is essential for reproducibility, trust, and appropriate interpretation of results. AI can be used at multiple review stages—searching, screening, data extraction, synthesis—but each use should be clearly documented.</p>
+<section id="suggested-reporting-items" class="level2" data-number="8.1">
+<h2 data-number="8.1" class="anchored" data-anchor-id="suggested-reporting-items"><span class="header-section-number">8.1</span> Suggested Reporting Items</h2>
+<p>When reporting AI use, specify:</p>
+<ol type="1">
+<li><strong>Purpose and Review Stage</strong>
 <ul>
-<li>Suggested reporting items (aligned with ROSES, PRISMA and RAISE)</li>
-<li>Examples of good documentation</li>
-<li>Supplementary materials (e.g., exported AI logs or model training data)</li>
+<li>Stage(s) where AI was applied (e.g., search strategy optimisation, title/abstract screening, data extraction, meta-analysis assistance).<br>
+</li>
+<li>Whether AI use was exploratory, supplementary, or primary.</li>
+</ul></li>
+<li><strong>Tool / Model Details</strong>
+<ul>
+<li>Tool name, version, provider, and date accessed.<br>
+</li>
+<li>Model type (e.g., large language model, machine learning classifier, vector search tool).<br>
+</li>
+<li>Model version and training data (if known).</li>
+</ul></li>
+<li><strong>Configuration and Parameters</strong>
+<ul>
+<li>Custom prompts, scripts, or workflows used.<br>
+</li>
+<li>Hyperparameters or thresholds (e.g., screening probability threshold = 0.75).<br>
+</li>
+<li>Any preprocessing of input data.</li>
+</ul></li>
+<li><strong>Human Oversight and Validation</strong>
+<ul>
+<li>Level of human review applied (e.g., 100% dual screening of AI-suggested inclusions).<br>
+</li>
+<li>QA/QC measures and error checking.<br>
+</li>
+<li>Measures to address potential AI bias or errors.</li>
+</ul></li>
+<li><strong>Outputs</strong>
+<ul>
+<li>How AI outputs were integrated into the review.<br>
+</li>
+<li>Whether outputs were directly used or informed further manual steps.</li>
+</ul></li>
+<li><strong>Transparency and Reproducibility Materials</strong>
+<ul>
+<li>AI interaction logs, exported decision files, model training datasets (if permissible).<br>
+</li>
+<li>Code and scripts deposited in a public repository.<br>
+</li>
+<li>Data availability statements.</li>
+</ul></li>
+</ol>
+<hr>
+</section>
+<section id="examples-of-good-documentation" class="level2" data-number="8.2">
+<h2 data-number="8.2" class="anchored" data-anchor-id="examples-of-good-documentation"><span class="header-section-number">8.2</span> Examples of Good Documentation</h2>
+<ul>
+<li><p><strong>Screening</strong>:<br>
+<em>We used ASReview v1.4.3 (van de Schoot et al., 2021) for title and abstract screening. The model was trained on an initial set of 200 randomly selected records, screened manually by two reviewers. The inclusion threshold was set at 0.85 probability. All AI-included records were checked by a human reviewer.</em></p></li>
+<li><p><strong>Data Extraction</strong>:<br>
+<em>We used OpenAI GPT-4 (March 2025) via the R plugin <code>chatgpttools</code> to extract outcome data from PDF tables. Outputs were verified by a second reviewer against source documents.</em></p></li>
+<li><p><strong>Search</strong>:<br>
+<em>We used Scite AI to identify additional grey literature references, validated against manual citation chasing results.</em></p></li>
 </ul>
+<hr>
+</section>
+<section id="supplementary-materials" class="level2" data-number="8.3">
+<h2 data-number="8.3" class="anchored" data-anchor-id="supplementary-materials"><span class="header-section-number">8.3</span> Supplementary Materials</h2>
+<ul>
+<li>Exported AI logs (conversation transcripts, model outputs).<br>
+</li>
+<li>Model training data (annotated reference sets, with licensing information).<br>
+</li>
+<li>Configuration files (parameter settings, prompt templates).<br>
+</li>
+<li>Performance metrics (precision, recall, F1 score for AI-assisted stages).</li>
+</ul>
+<p>Deposit these in an <strong>open repository</strong> (e.g., OSF, Zenodo, institutional archive) to ensure transparency.</p>
+<hr>
+</section>
 </section>
 <section id="resources-and-further-reading" class="level1" data-number="9">
 <h1 data-number="9"><span class="header-section-number">9</span> Resources and Further Reading</h1>
+<section id="tool-websites" class="level3" data-number="9.0.1">
+<h3 data-number="9.0.1" class="anchored" data-anchor-id="tool-websites"><span class="header-section-number">9.0.1</span> Tool Websites</h3>
 <ul>
-<li>Links to:
-<ul>
-<li>Tool websites</li>
-<li>Tutorials and videos</li>
-<li>Guidance documents (RAISE, PRISMA 2020, etc.)</li>
-</ul></li>
-<li>Key publications and reviews</li>
+<li><strong>ASReview</strong> – <a href="https://asreview.nl" class="uri">https://asreview.nl</a><br>
+</li>
+<li><strong>Colandr</strong> – <a href="https://www.colandrapp.com" class="uri">https://www.colandrapp.com</a><br>
+</li>
+<li><strong>Rayyan</strong> – <a href="https://www.rayyan.ai" class="uri">https://www.rayyan.ai</a></li>
 </ul>
-<section id="example-protocol-language-for-ai-use" class="level2" data-number="9.1">
-<h2 data-number="9.1" class="anchored" data-anchor-id="example-protocol-language-for-ai-use"><span class="header-section-number">9.1</span> Example Protocol Language for AI Use</h2>
 </section>
-<section id="template-for-reporting-ai-use" class="level2" data-number="9.2">
-<h2 data-number="9.2" class="anchored" data-anchor-id="template-for-reporting-ai-use"><span class="header-section-number">9.2</span> Template for Reporting AI Use</h2>
+<section id="guidance-documents" class="level3" data-number="9.0.2">
+<h3 data-number="9.0.2" class="anchored" data-anchor-id="guidance-documents"><span class="header-section-number">9.0.2</span> Guidance Documents</h3>
+<ul>
+<li><strong>RAISE</strong> – <a href="https://osf.io/fwaud/" class="uri">https://osf.io/fwaud/</a><br>
+</li>
+<li><strong>Cochrane Methods AI</strong> – <a href="https://methods.cochrane.org/ai/" class="uri">https://methods.cochrane.org/ai/</a> (tutorials and other resources coming soon)</li>
+</ul>
+</section>
+<section id="key-publications-and-reviews" class="level3" data-number="9.0.3">
+<h3 data-number="9.0.3" class="anchored" data-anchor-id="key-publications-and-reviews"><span class="header-section-number">9.0.3</span> Key Publications and Reviews</h3>
+<ul>
+<li>van de Schoot, R., de Bruin, J., Schram, R. et al.&nbsp;<em>An open source machine learning framework for efficient and transparent systematic reviews.</em> Nat Mach Intell 3, 125–133 (2021). <a href="https://doi.org/10.1038/s42256-020-00287-7" class="uri">https://doi.org/10.1038/s42256-020-00287-7</a></li>
+<li>Marshall, I.J., Wallace, B.C. <em>Toward systematic review automation: a practical guide to using machine learning tools in research synthesis.</em> Syst Rev 8, 163 (2019). <a href="https://doi.org/10.1186/s13643-019-1074-9" class="uri">https://doi.org/10.1186/s13643-019-1074-9</a></li>
+</ul>
 </section>
 </section>
 
