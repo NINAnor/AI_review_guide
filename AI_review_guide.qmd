@@ -33,6 +33,8 @@ This guide is a "living document" that will be updated periodically. The documen
   -   1.1, 1.2 — minor updates (typos, clarifications)
 
   -   2.0 — major update, possible structural changes or new content
+  
+  You can add comments and make suggestions [here](https://github.com/NINAnor/AI_review_guide/discussions/1)
 
 ### Who this guide is for
 
